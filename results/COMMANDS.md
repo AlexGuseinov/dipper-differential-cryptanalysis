@@ -83,3 +83,6 @@ Build used for the measurements: `make NATIVE=1` unless stated otherwise.
 - `./bin/dltool dl -r 11 -i 800000 -n 37 -k indep -s 811 -t 4` -> `results/raw/08_dl_r11.txt` (2026-10-11T12:24:15Z, 1003s)
 - `python3 steps/08_table.py` -> `results/raw/08_table.txt` (2026-10-11T12:41:51Z, 0s)
 - `python3 steps/09_table.py` -> `results/raw/09_table.txt` (2026-10-11T12:42:02Z, 0s)
+- `python3 steps/07_single_bit_graph.py --check` -> `results/raw/07_check.txt` (2026-10-11T12:43:10Z, 14s)
+- `python3 steps/07_single_bit_graph.py` -> `results/raw/07_graph.txt` (2026-10-11T12:43:24Z, 1s)
+- `python3 steps/10_rotation_table.py` -> `results/raw/10_rotation_table.txt` (2026-10-11T12:43:25Z, 0s)

@@ -1,0 +1,8 @@
+# command: python3 steps/07_single_bit_graph.py --check
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T12:43:10Z
+(1,4,7,11): self-loop at bit 23 with probability 1/8 OK
+(1,4,7,11): all self-loops: [(23, '1/8')]
+(0,0,0,0): self-loops: [] OK (none)
+(0,0,0,0): best cycle: (20, 22, 52, 30) prob 1/65536 (-4.000 bits/round)
+# seconds: 14
