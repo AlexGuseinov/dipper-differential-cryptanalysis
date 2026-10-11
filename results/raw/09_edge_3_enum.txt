@@ -1,0 +1,5 @@
+# command: ./bin/lintool enum -a 000000000c000600 -b 0000000000000013
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T12:08:31Z
+a=000000000c000600 b=0000000000000013 cor=0.25 log2abs=-2.0000
+# seconds: 10

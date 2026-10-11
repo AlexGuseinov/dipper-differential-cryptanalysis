@@ -49,12 +49,15 @@ Pr[0x800000 -> {0x800000, 0x900000}] >= (7/32)^r; r = 27: 2^-59.201 (inferred).
 | 11 | 34 | 527 | -24.958 | [-25.087, -24.840] | -24.926 | -0.032 |
 | 12 | 36 | 454 | -27.173 | [-27.313, -27.046] | -27.119 | -0.054 |
 | 13 | 37 | 179 | -29.516 | [-29.745, -29.319] | -29.312 | -0.204 |
+| 13 (repeat, seed 4130) | 37 | 192 | -29.415 | [-29.635, -29.224] | -29.312 | -0.103 |
+| 13 (both runs) | 38 | 371 | -29.465 | [-29.620, -29.325] | -29.312 | -0.153 |
 
 The bound is attained within sampling error for r <= 12: paths leaving {0x800000, 0x900000}
-add nothing measurable to 0x800000 -> 0x800000. At r = 13 the measurement is 0.20 bits below the
-bound and its 95% interval just misses it (179 hits against 206 expected). With fresh keys in every
-round the measured process is exactly the Markov chain, so the expectation cannot be below the bound;
-this is read as a sampling deviation (about 1.9 sigma). A repeat with another seed is queued (`04_iter_r13b`).
+add nothing measurable to 0x800000 -> 0x800000. At r = 13 both runs are below the bound; together
+371 hits against 412.5 expected (z = -2.04, 0.15 bits). With fresh keys in every round the measured
+process is exactly the Markov chain, so its expectation cannot be below the bound, and the r = 2 value
+(7.3 million hits) matches the exact two-round value to 0.0002 bits, which checks the engine.
+We read the r = 13 gap as a sampling deviation but state it; a run with 2^40 pairs would settle it.
 
 The published paper (Table 20) reports 2^-11.98, 2^-14.76, 2^-18.35 at 5, 6, 7 rounds for input
 0x00E00000 and extrapolates about 3.2 bits per round, reaching 2^-64 "around r = 21".
@@ -108,5 +111,30 @@ round): the 4-round cycle 0x13 -> 0xb0000 -> 0x1900000000 -> 0xc000600 -> 0x13 w
 Ten rounds of this cycle give 2^-27.5, weaker than the published optimal 10-round trail (weight 21,
 Table 21), so it does not contradict it. Reduced-round measurements: pending.
 
-## 8. Fixed keys (`05_*`) and differential-linear (`08_*`)
+## 8. Fixed keys (`05_*`, `05_table`; measured)
+Per-key counts for 256 keys (6, 8 rounds) and 64 keys (10 rounds). D = index of dispersion of the
+per-key counts (1 if all keys had the same probability); z = normal approximation of the chi-square test.
+
+| mode | r | keys | pairs/key | hits | log2 p (95% interval) | bound | D | z | per-key log2 p: min / 10% / median / 90% / max |
+|---|---|---|---|---|---|---|---|---|---|
+| ks96 | 6 | 256 | 2^22 | 67681 | -13.954 [-13.964, -13.943] | -13.963 | 20.85 | +224.1 | -14.80 / -14.44 / -14.04 / -13.51 / -12.90 |
+| ks96 | 8 | 256 | 2^25 | 24625 | -18.412 [-18.430, -18.394] | -18.349 | 10.12 | +102.9 | -19.33 / -18.98 / -18.51 / -17.91 / -16.97 |
+| ks96 | 10 | 64 | 2^29 | 4874 | -22.749 [-22.790, -22.709] | -22.734 | 12.62 | +65.2 | -24.00 / -23.51 / -22.87 / -22.03 / -21.57 |
+| ks128 | 6 | 256 | 2^22 | 67604 | -13.955 [-13.966, -13.944] | -13.963 | 18.73 | +200.2 | -14.69 / -14.42 / -14.06 / -13.53 / -12.91 |
+| ks128 | 8 | 256 | 2^25 | 25268 | -18.375 [-18.393, -18.357] | -18.349 | 10.32 | +105.2 | -19.39 / -18.96 / -18.48 / -17.82 / -17.03 |
+| ks128 | 10 | 64 | 2^29 | 4799 | -22.771 [-22.813, -22.731] | -22.734 | 4.43 | +19.2 | -24.19 / -23.36 / -22.73 / -22.40 / -22.18 |
+| rk | 6 | 256 | 2^22 | 66782 | -13.973 [-13.984, -13.962] | -13.963 | 17.57 | +187.1 | -14.76 / -14.45 / -14.08 / -13.54 / -12.92 |
+| rk | 8 | 256 | 2^25 | 25324 | -18.372 [-18.390, -18.354] | -18.349 | 12.00 | +124.2 | -19.45 / -19.00 / -18.49 / -17.83 / -16.97 |
+| rk | 10 | 64 | 2^29 | 5450 | -22.588 [-22.627, -22.550] | -22.734 | 14.60 | +76.3 | -23.75 / -23.39 / -22.73 / -21.89 / -21.39 |
+
+Findings:
+- Averaged over keys, both key schedules give the independent-round-key value (within 0.06 bits).
+- For a fixed key the probability depends strongly on the key (D from 4 to 21). The spread is the same
+  for fixed independent round keys (rk), so it comes from fixing the keys, not from the key schedule.
+- The median key is 0.0 to 0.15 bits below the pooled value and the 10% quantile 0.5 to 0.8 bits below,
+  at 6 to 10 rounds. How the spread behaves at 27 rounds is not measured; the data complexity of
+  section 4 is for the average key.
+- At 10 rounds each key has only about 75 right pairs, so part of the spread there is sampling noise.
+
+## 9. Differential-linear (`08_*`)
 Pending.

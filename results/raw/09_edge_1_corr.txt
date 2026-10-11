@@ -1,0 +1,5 @@
+# command: ./bin/lintool corr -a 00000000000b0000 -b 0000001900000000
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T12:08:09Z
+a=00000000000b0000 b=0000001900000000 cor=0.25 log2abs=-2.0000
+# seconds: 0
