@@ -3,6 +3,7 @@
 import importlib.util, os, sys
 here = os.path.dirname(os.path.abspath(__file__))
 spec = importlib.util.spec_from_file_location("dc", os.path.join(here, "06_data_complexity.py"))
+ARGS = sys.argv[1:]
 dc = importlib.util.module_from_spec(spec); sys.argv = ["x", "--none"]; spec.loader.exec_module(dc)
 nodes, edges = dc.load_cluster(os.path.join(dc.root, "results", "data", "cluster_800000.txt"))
 n = len(nodes); idx = {d: i for i, d in nodes.items()}
@@ -18,7 +19,7 @@ for x in range(1, 16):
     final[x] = (w, w10)
 tot = [sum(final[x][0][i] for x in final) for i in range(n)]
 order = sorted(range(n), key=lambda i: -tot[i])[:16]
-if len(sys.argv) > 1 and sys.argv[1] == "--predict":
+if ARGS and ARGS[0] == "--predict":
     import math
     for x in range(1, 16):
         p = sum(final[x][1][i] for i in order)

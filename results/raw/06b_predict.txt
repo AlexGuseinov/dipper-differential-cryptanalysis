@@ -1,0 +1,19 @@
+# command: python3 steps/06b_targets.py --predict
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T11:32:29Z
+model 0x0100000 r=10 -> 16-set: 0
+model 0x0200000 r=10 -> 16-set: 2^-21.213
+model 0x0300000 r=10 -> 16-set: 2^-22.798
+model 0x0400000 r=10 -> 16-set: 2^-20.213
+model 0x0500000 r=10 -> 16-set: 2^-20.798
+model 0x0600000 r=10 -> 16-set: 2^-19.990
+model 0x0700000 r=10 -> 16-set: 0
+model 0x0800000 r=10 -> 16-set: 2^-19.990
+model 0x0900000 r=10 -> 16-set: 2^-19.990
+model 0x0a00000 r=10 -> 16-set: 2^-19.990
+model 0x0b00000 r=10 -> 16-set: 2^-20.798
+model 0x0c00000 r=10 -> 16-set: 0
+model 0x0d00000 r=10 -> 16-set: 2^-21.213
+model 0x0e00000 r=10 -> 16-set: 2^-20.213
+model 0x0f00000 r=10 -> 16-set: 2^-21.213
+# seconds: 116
