@@ -1,0 +1,16 @@
+# command: python3 steps/06_data_complexity.py --validate
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T11:23:35Z
+model 0x0800000 r=8: Pr[->0x800000] >= 2^-18.349, Pr[->4-set] >= 2^-16.721
+model 0x0800000 r=10: Pr[->0x800000] >= 2^-22.734, Pr[->4-set] >= 2^-21.107
+model 0x0800000 r=12: Pr[->0x800000] >= 2^-27.119, Pr[->4-set] >= 2^-25.492
+model 0x0100000 r=8: Pr[->0x800000] >= 2^-inf, Pr[->4-set] >= 2^-inf
+model 0x0100000 r=10: Pr[->0x800000] >= 2^-inf, Pr[->4-set] >= 2^-inf
+model 0x0100000 r=12: Pr[->0x800000] >= 2^-inf, Pr[->4-set] >= 2^-inf
+model 0x0c00000 r=8: Pr[->0x800000] >= 2^-inf, Pr[->4-set] >= 2^-inf
+model 0x0c00000 r=10: Pr[->0x800000] >= 2^-inf, Pr[->4-set] >= 2^-inf
+model 0x0c00000 r=12: Pr[->0x800000] >= 2^-inf, Pr[->4-set] >= 2^-inf
+model 0x0e00000 r=8: Pr[->0x800000] >= 2^-18.571, Pr[->4-set] >= 2^-16.944
+model 0x0e00000 r=10: Pr[->0x800000] >= 2^-22.956, Pr[->4-set] >= 2^-21.329
+model 0x0e00000 r=12: Pr[->0x800000] >= 2^-27.341, Pr[->4-set] >= 2^-25.714
+# seconds: 32

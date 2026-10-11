@@ -1,0 +1,95 @@
+# command: ./bin/onestep cluster -i 800000 -m -7 -N 64 -r 27 -f results/data/cluster_800000.txt
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T11:15:38Z
+processed 0000000000800000 nodes=15 edges=15
+processed 0000002000800000 nodes=23 edges=23
+processed 0000002000900000 nodes=23 edges=27
+processed 0000000000900000 nodes=35 edges=50
+processed 0040000000900000 nodes=55 edges=70
+processed 0040002000800000 nodes=55 edges=70
+processed 0040002000900000 nodes=55 edges=70
+processed 0000000000800080 nodes=64 edges=79
+processed 0040000000900080 nodes=64 edges=79
+processed 0040002000800080 nodes=64 edges=79
+processed 0040002000900080 nodes=64 edges=79
+processed 0040000000800000 nodes=64 edges=89
+processed 0000000000900080 nodes=64 edges=92
+processed 0040000000800080 nodes=64 edges=92
+processed 0000002000900080 nodes=64 edges=92
+processed 0040000000000000 nodes=64 edges=92
+processed 0040000000100000 nodes=64 edges=100
+processed 0000002000000080 nodes=64 edges=100
+processed 0040000000000080 nodes=64 edges=100
+processed 0040000000100080 nodes=64 edges=100
+processed 0000002000100000 nodes=64 edges=100
+processed 0040002000000000 nodes=64 edges=100
+processed 0040002000100000 nodes=64 edges=100
+processed 0000002000800080 nodes=64 edges=100
+processed 0000002000100080 nodes=64 edges=100
+processed 0040002000000080 nodes=64 edges=100
+processed 0040002000100080 nodes=64 edges=100
+processed 0000800000802000 nodes=64 edges=100
+processed 2200000000800400 nodes=64 edges=100
+processed 2200002000800400 nodes=64 edges=100
+processed 2000110000800400 nodes=64 edges=100
+processed 2000112000800400 nodes=64 edges=100
+processed 0000110000804400 nodes=64 edges=100
+processed 0000112000804400 nodes=64 edges=100
+processed 2200000000804400 nodes=64 edges=100
+processed 2200002000804400 nodes=64 edges=100
+processed 0000000040802000 nodes=64 edges=100
+processed 0000000000800099 nodes=64 edges=100
+processed 0000002000800099 nodes=64 edges=100
+processed 0000800000902000 nodes=64 edges=100
+processed 0000800040802000 nodes=64 edges=100
+processed 0000002000900099 nodes=64 edges=100
+processed 0000000040902000 nodes=64 edges=100
+processed 0000900000802000 nodes=64 edges=100
+processed 0000000000900099 nodes=64 edges=100
+processed 0000800040902000 nodes=64 edges=100
+processed 0040800000002000 nodes=64 edges=100
+processed 0040800000102000 nodes=64 edges=100
+processed 0000802000002080 nodes=64 edges=100
+processed 0040800000002080 nodes=64 edges=100
+processed 0040800000102080 nodes=64 edges=100
+processed 0000900000902000 nodes=64 edges=100
+processed 0040000040002000 nodes=64 edges=100
+processed 0040000040102000 nodes=64 edges=100
+processed 0000002040002080 nodes=64 edges=100
+processed 0040000040002080 nodes=64 edges=100
+processed 0040000040102080 nodes=64 edges=100
+processed 0000000000802000 nodes=64 edges=100
+processed 0000900040802000 nodes=64 edges=100
+processed 0000000000800019 nodes=64 edges=100
+processed 0040000000900019 nodes=64 edges=100
+processed 0040002000800019 nodes=64 edges=100
+processed 0040002000900019 nodes=64 edges=100
+processed 0000000000820099 nodes=64 edges=100
+r=1 to_start_log2=-3.0000 best_out=0000000000800000 best_log2=-3.0000 cluster_total_log2=0.0000
+r=2 to_start_log2=-5.1926 best_out=0000000000800000 best_log2=-5.1926 cluster_total_log2=-1.9774
+r=3 to_start_log2=-7.3853 best_out=0000000000800000 best_log2=-7.3853 cluster_total_log2=-4.2300
+r=4 to_start_log2=-9.5779 best_out=0000000000800000 best_log2=-9.5779 cluster_total_log2=-6.4226
+r=5 to_start_log2=-11.7706 best_out=0000000000800000 best_log2=-11.7706 cluster_total_log2=-8.6153
+r=6 to_start_log2=-13.9632 best_out=0000000000800000 best_log2=-13.9632 cluster_total_log2=-10.8079
+r=7 to_start_log2=-16.1559 best_out=0000000000800000 best_log2=-16.1559 cluster_total_log2=-13.0005
+r=8 to_start_log2=-18.3485 best_out=0000000000800000 best_log2=-18.3485 cluster_total_log2=-15.1932
+r=9 to_start_log2=-20.5412 best_out=0000000000800000 best_log2=-20.5412 cluster_total_log2=-17.3858
+r=10 to_start_log2=-22.7338 best_out=0000000000800000 best_log2=-22.7338 cluster_total_log2=-19.5785
+r=11 to_start_log2=-24.9265 best_out=0000000000800000 best_log2=-24.9265 cluster_total_log2=-21.7711
+r=12 to_start_log2=-27.1191 best_out=0000000000800000 best_log2=-27.1191 cluster_total_log2=-23.9638
+r=13 to_start_log2=-29.3117 best_out=0000000000800000 best_log2=-29.3117 cluster_total_log2=-26.1564
+r=14 to_start_log2=-31.5044 best_out=0000000000800000 best_log2=-31.5044 cluster_total_log2=-28.3491
+r=15 to_start_log2=-33.6970 best_out=0000000000800000 best_log2=-33.6970 cluster_total_log2=-30.5417
+r=16 to_start_log2=-35.8897 best_out=0000000000800000 best_log2=-35.8897 cluster_total_log2=-32.7343
+r=17 to_start_log2=-38.0823 best_out=0000000000800000 best_log2=-38.0823 cluster_total_log2=-34.9270
+r=18 to_start_log2=-40.2750 best_out=0000000000800000 best_log2=-40.2750 cluster_total_log2=-37.1196
+r=19 to_start_log2=-42.4676 best_out=0000000000800000 best_log2=-42.4676 cluster_total_log2=-39.3123
+r=20 to_start_log2=-44.6603 best_out=0000000000800000 best_log2=-44.6603 cluster_total_log2=-41.5049
+r=21 to_start_log2=-46.8529 best_out=0000000000800000 best_log2=-46.8529 cluster_total_log2=-43.6976
+r=22 to_start_log2=-49.0455 best_out=0000000000800000 best_log2=-49.0455 cluster_total_log2=-45.8902
+r=23 to_start_log2=-51.2382 best_out=0000000000800000 best_log2=-51.2382 cluster_total_log2=-48.0829
+r=24 to_start_log2=-53.4308 best_out=0000000000800000 best_log2=-53.4308 cluster_total_log2=-50.2755
+r=25 to_start_log2=-55.6235 best_out=0000000000800000 best_log2=-55.6235 cluster_total_log2=-52.4682
+r=26 to_start_log2=-57.8161 best_out=0000000000800000 best_log2=-57.8161 cluster_total_log2=-54.6608
+r=27 to_start_log2=-60.0088 best_out=0000000000800000 best_log2=-60.0088 cluster_total_log2=-56.8534
+# seconds: 308

@@ -1,0 +1,11 @@
+# command: ./bin/dltool diff -r 5 -i 800000 -o 800000,900000,2000800000,2000900000 -n 30 -k indep -s 45 -t 4
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T10:53:11Z
+cmd=diff rounds=5 mode=indep nkeys=1 seed=45 rot=1,4,7,11
+din=0000000000800000 pairs=1073741824 log2pairs=30.000
+dout=0000000000800000 hits=306818 log2p=-11.7730
+dout=0000000000900000 hits=230409 log2p=-12.1862
+dout=0000002000800000 hits=208561 log2p=-12.3299
+dout=0000002000900000 hits=203199 log2p=-12.3675
+set hits=948987 log2p=-10.1440
+# seconds: 4

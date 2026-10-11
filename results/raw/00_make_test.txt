@@ -1,0 +1,14 @@
+# command: make test NATIVE=1
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T10:52:51Z
+./bin/dltool test
+TV1 Dipper-64/96: got 5F189202D3152B8F expected 5F189202D3152B8F OK
+TV2 Dipper-64/96: got D873355EC63B1B4B expected D873355EC63B1B4B OK
+TV3 Dipper-64/128: got 4B46284387969060 expected 4B46284387969060 OK
+TV4 Dipper-64/128: got 6ABB4518063706B0 expected 6ABB4518063706B0 OK
+fast round vs bit-level reference and inverse, 10^6 random inputs: 0 mismatches OK
+bitsliced vs table implementation, 256 blocks x 28 rounds: 0 mismatches OK
+RC: 01 02 05 0A 15 0B 17 0E 1D 1B 16 0C 18 11 03 07 0F 1F 1E 1C 19 13 06 0D 1A 14 09 12
+python3 steps/01_reference_check.py
+C engine vs Python reference: 4000 encryptions, 0 mismatches OK
+# seconds: 5

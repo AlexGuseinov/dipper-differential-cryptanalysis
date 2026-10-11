@@ -1,0 +1,25 @@
+# command: python3 steps/02_one_round_exact.py
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T10:51:39Z
+0x800000 -> 0x800000: exact 1/8 (2^-3.0000), product model 7/64
+0x800000 -> 0x900000: exact 3/32 (2^-3.4150), product model 7/64
+   top outputs: 0x0000000000800000:1/8, 0x0000002000800000:1/8, 0x0000002000900000:7/64, 0x0000000000900000:3/32
+0x900000 -> 0x800000: exact 1/8 (2^-3.0000), product model 7/64
+0x900000 -> 0x900000: exact 3/32 (2^-3.4150), product model 11/128
+   top outputs: 0x0000000000800000:1/8, 0x0000000000900000:3/32, 0x0040000000000000:1/16, 0x0040000000100000:1/16
+
+per-characteristic breakdown (S-box output difference b in nibble 1 of C):
+  0x800000->0x800000 b=0x3: product 1/16, exact 1/8
+  0x800000->0x800000 b=0x7: product 1/32, exact 0
+  0x800000->0x800000 b=0xf: product 1/64, exact 0
+  0x800000->0x900000 b=0x3: product 1/16, exact 1/16
+  0x800000->0x900000 b=0x7: product 1/32, exact 1/32
+  0x800000->0x900000 b=0xf: product 1/64, exact 0
+  0x900000->0x800000 b=0x1: product 1/16, exact 1/16
+  0x900000->0x800000 b=0x3: product 1/32, exact 0
+  0x900000->0x800000 b=0x7: product 1/64, exact 1/16
+  0x900000->0x900000 b=0x1: product 1/32, exact 1/32
+  0x900000->0x900000 b=0x3: product 1/32, exact 1/32
+  0x900000->0x900000 b=0x7: product 1/64, exact 1/32
+  0x900000->0x900000 b=0xd: product 1/128, exact 0
+# seconds: 64

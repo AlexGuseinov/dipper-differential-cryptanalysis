@@ -1,0 +1,54 @@
+# command: python3 steps/06_data_complexity.py
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T11:20:57Z
+cluster: 64 differences, 100 transitions
+  r=10: Pr[a->a] >= 2^-22.734, Pr[a->cluster] >= 2^-19.578
+  r=13: Pr[a->a] >= 2^-29.312, Pr[a->cluster] >= 2^-26.156
+  r=20: Pr[a->a] >= 2^-44.660, Pr[a->cluster] >= 2^-41.505
+  r=26: Pr[a->a] >= 2^-57.816, Pr[a->cluster] >= 2^-54.661
+  r=27: Pr[a->a] >= 2^-60.009, Pr[a->cluster] >= 2^-56.853
+
+input differences in nibble 5 (exact first round, then 26 cluster rounds):
+  0x0100000: mass into cluster after 1 round 2^-0.093
+  0x0200000: mass into cluster after 1 round 2^-0.193
+  0x0300000: mass into cluster after 1 round 2^-0.093
+  0x0400000: mass into cluster after 1 round 2^0.000
+  0x0500000: mass into cluster after 1 round 2^-0.300
+  0x0600000: mass into cluster after 1 round 2^-0.193
+  0x0700000: mass into cluster after 1 round 2^-0.093
+  0x0800000: mass into cluster after 1 round 2^0.000
+  0x0900000: mass into cluster after 1 round 2^0.000
+  0x0a00000: mass into cluster after 1 round 2^-0.300
+  0x0b00000: mass into cluster after 1 round 2^-0.093
+  0x0c00000: mass into cluster after 1 round 2^-0.678
+  0x0d00000: mass into cluster after 1 round 2^-0.300
+  0x0e00000: mass into cluster after 1 round 2^-0.193
+  0x0f00000: mass into cluster after 1 round 2^-0.300
+
+success >= 0.9, false alarm <= 0.01; N in chosen plaintexts (log2), codebook 2^64
+setting   |S|  log2 p_S  log2 N  tau     lam0     lam1   succ
+single      1   -60.009  63.375    3    0.324    5.480  0.910
+nibble      1   -60.865  60.562    4    0.692    6.773  0.906
+single      2   -59.201  62.562    3    0.369    5.507  0.912
+nibble      2   -60.058  59.750    4    0.788    6.848  0.910
+single      4   -58.381  61.688    3    0.403    5.348  0.902
+nibble      4   -59.238  59.188    5    1.068    8.311  0.917
+single      8   -57.788  61.438    4    0.677    6.951  0.916
+nibble      8   -58.644  58.750    6    1.577    9.646  0.918
+single     16   -57.265  61.062    5    1.044    7.995  0.900
+nibble     16   -58.122  58.312    7    2.328   10.889  0.917
+single     32   -56.967  61.062    7    2.089   10.635  0.905
+nibble     32   -57.823  58.500   12    5.303   17.291  0.925
+single     64   -56.853  61.375   12    5.187   16.671  0.903
+nibble     64   -57.710  58.875   24   13.755   30.576  0.904
+
+largest outputs for the single setting:
+  0x0000000000800000: 2^-60.009
+  0x0000000000900000: 2^-60.424
+  0x0000002000800000: 2^-60.568
+  0x0000002000900000: 2^-60.607
+  0x0040002000800000: 2^-61.357
+  0x0040002000900000: 2^-61.357
+  0x0040002000800080: 2^-61.357
+  0x0040002000900080: 2^-61.357
+# seconds: 119
