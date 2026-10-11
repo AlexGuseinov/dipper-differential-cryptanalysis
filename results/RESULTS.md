@@ -109,7 +109,26 @@ Best iterative approximation among masks with <= 2 active nibbles (exact, search
 round): the 4-round cycle 0x13 -> 0xb0000 -> 0x1900000000 -> 0xc000600 -> 0x13 with correlations
 -2^-3, 2^-2, -2^-4, 2^-2: |c| = 2^-11 per 4 rounds, 2.75 bits per round.
 Ten rounds of this cycle give 2^-27.5, weaker than the published optimal 10-round trail (weight 21,
-Table 21), so it does not contradict it. Reduced-round measurements: pending.
+Table 21), so it does not contradict it.
+
+Formula vs enumeration and reduced-round measurements (`09_table`; 16 keys; sqrt(ELP) debiased):
+
+| edge | input mask | output mask | formula | enumeration |
+|---|---|---|---|---|
+| 0 | 0x13 | 0xb0000 | -0.125 | -0.125 |
+| 1 | 0xb0000 | 0x1900000000 | +0.25 | +0.25 |
+| 2 | 0x1900000000 | 0xc000600 | -0.0625 | -0.0625 |
+| 3 | 0xc000600 | 0x13 | +0.25 | +0.25 |
+
+| r | samples/key x keys | trail log2 abs c (exact) | measured log2 sqrt(ELP), fixed indep. keys | measured, Dipper-64/96 |
+|---|---|---|---|---|
+| 1 | 2^20 x 16 | -3.00 | -2.99 | -2.99 |
+| 2 | 2^22 x 16 | -5.00 | -4.99 | -5.01 |
+| 3 | 2^26 x 16 | -9.00 | -8.51 | -8.56 |
+| 4 | 2^30 x 16 | -11.00 | -10.23 | -10.51 |
+| 5 | 2^32 x 16 | -14.00 | -13.63 | -13.32 |
+
+From 3 rounds the measured hull is 0.4 to 0.8 bits stronger than the single trail.
 
 ## 8. Fixed keys (`05_*`, `05_table`; measured)
 Per-key counts for 256 keys (6, 8 rounds) and 64 keys (10 rounds). D = index of dispersion of the
@@ -131,10 +150,30 @@ Findings:
 - Averaged over keys, both key schedules give the independent-round-key value (within 0.06 bits).
 - For a fixed key the probability depends strongly on the key (D from 4 to 21). The spread is the same
   for fixed independent round keys (rk), so it comes from fixing the keys, not from the key schedule.
-- The median key is 0.0 to 0.15 bits below the pooled value and the 10% quantile 0.5 to 0.8 bits below,
+- The median key is between 0.04 bits above and 0.15 bits below the pooled value and the 10% quantile 0.5 to 0.8 bits below,
   at 6 to 10 rounds. How the spread behaves at 27 rounds is not measured; the data complexity of
   section 4 is for the average key.
 - At 10 rounds each key has only about 75 right pairs, so part of the spread there is sampling noise.
 
-## 9. Differential-linear (`08_*`)
-Pending.
+## 9. Differential-linear (`08_*`, `08_table`; measured, independent round keys)
+Input difference 0x800000; all 64 single-bit output masks; largest |correlation| per round:
+
+| r | log2 pairs | best bit | corr | log2 abs | noise log2 (1/sqrt N) | DL data log2(1/c^2) | diff data log2(1/p) | fewer pairs |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 26 | 63 | +1.00000000 | 0.000 | -13.00 | -0.00 | 3.00 | DL |
+| 2 | 26 | 63 | +1.00000000 | 0.000 | -13.00 | -0.00 | 5.19 | DL |
+| 3 | 28 | 43 | +0.91795719 | -0.124 | -14.00 | 0.25 | 7.39 | DL |
+| 4 | 28 | 41 | +0.38305487 | -1.384 | -14.00 | 2.77 | 9.58 | DL |
+| 5 | 30 | 11 | +0.09931290 | -3.332 | -15.00 | 6.66 | 11.77 | DL |
+| 6 | 30 | 11 | +0.02192372 | -5.511 | -15.00 | 11.02 | 13.96 | DL |
+| 7 | 32 | 50 | +0.00493563 | -7.663 | -16.00 | 15.33 | 16.16 | DL |
+| 8 | 34 | 50 | +0.00108895 | -9.843 | -17.00 | 19.69 | 18.35 | differential |
+| 9 | 35 | 50 | +0.00023237 | -12.071 | -17.50 | 24.14 | 20.54 | differential |
+| 10 | 36 | 50 | +0.00005338 | -14.193 | -18.00 | 28.39 | 22.73 | differential |
+| 11 | 37 | 11 | +0.00001255 | -16.282 | -18.50 | 32.56 | 24.93 | differential |
+
+Decay of the best correlation: 2.155 bits/round over rounds 7..11 (2.146 over 8..11).
+With the crude comparison 1/c^2 pairs (DL) against 1/p pairs (differential), the differential needs
+fewer pairs from 8 rounds on; at 7 rounds the DL test still needs fewer (2^15.3 vs 2^16.2).
+At 11 rounds the best correlation is 2.2 bits above the noise level, and the maximum over 64 bits is
+biased upward near the noise level.

@@ -1,0 +1,21 @@
+# command: python3 steps/08_table.py
+# host: Linux 6.18.44-fc-v114 x86_64, 4 cpus
+# start: 2026-10-11T12:41:51Z
+| r | log2 pairs | best bit | corr | log2 abs | noise log2 (1/sqrt N) | DL data log2(1/c^2) | diff data log2(1/p) | fewer pairs |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 26 | 63 | +1.00000000 | 0.000 | -13.00 | -0.00 | 3.00 | DL |
+| 2 | 26 | 63 | +1.00000000 | 0.000 | -13.00 | -0.00 | 5.19 | DL |
+| 3 | 28 | 43 | +0.91795719 | -0.124 | -14.00 | 0.25 | 7.39 | DL |
+| 4 | 28 | 41 | +0.38305487 | -1.384 | -14.00 | 2.77 | 9.58 | DL |
+| 5 | 30 | 11 | +0.09931290 | -3.332 | -15.00 | 6.66 | 11.77 | DL |
+| 6 | 30 | 11 | +0.02192372 | -5.511 | -15.00 | 11.02 | 13.96 | DL |
+| 7 | 32 | 50 | +0.00493563 | -7.663 | -16.00 | 15.33 | 16.16 | DL |
+| 8 | 34 | 50 | +0.00108895 | -9.843 | -17.00 | 19.69 | 18.35 | differential |
+| 9 | 35 | 50 | +0.00023237 | -12.071 | -17.50 | 24.14 | 20.54 | differential |
+| 10 | 36 | 50 | +0.00005338 | -14.193 | -18.00 | 28.39 | 22.73 | differential |
+| 11 | 37 | 11 | +0.00001255 | -16.282 | -18.50 | 32.56 | 24.93 | differential |
+
+decay of the best DL correlation, rounds 7..11: 2.155 bits/round
+decay of the best DL correlation, rounds 8..11: 2.146 bits/round
+decay of the best DL correlation, rounds 6..11: 2.154 bits/round
+# seconds: 0
