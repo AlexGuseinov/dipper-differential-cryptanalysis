@@ -1,8 +1,8 @@
-# dipper-dl
+# dipper-differential-cryptanalysis
 
 Differential, differential-linear and linear analysis of the Dipper block cipher
-(spec v1.1, https://github.com/AlexGuseinov/Dipper-lightweight-cipher), supporting the
-paper "Differential Cryptanalysis of Full-Round Dipper" in `paper/`.
+(spec v1.1, https://github.com/AlexGuseinov/Dipper-lightweight-cipher): code and data for the
+paper "Differential Cryptanalysis of Full-Round Dipper" (A. Huseynli, Y. Imamverdiyev, J. Alizadeh).
 
 ## Build and test
 
