@@ -1,4 +1,4 @@
-/* Bitsliced Dipper: 256 blocks per batch (4 x 64-bit lanes per slice).
+/* Bitsliced Dipper: 64 * BS_LANES blocks per batch (256 by default).
  * Slice i holds state bit i of every block.  Rotations and the bit
  * permutation are index maps; S-box and the two adders are boolean circuits. */
 #ifndef BITSLICE_H
@@ -7,9 +7,12 @@
 #include <stdint.h>
 #include "dipper.h"
 
-typedef uint64_t V __attribute__((vector_size(32)));
+/* BS_LANES 64-bit lanes per slice (default 4); a tool may define it before including */
+#ifndef BS_LANES
 #define BS_LANES 4
-#define BS_BLOCKS 256
+#endif
+typedef uint64_t V __attribute__((vector_size(8 * BS_LANES)));
+#define BS_BLOCKS (64 * BS_LANES)
 
 static int BS_ROTSRC[64]; /* after rotation, slice i comes from slice BS_ROTSRC[i] */
 static int BS_PDST[64];   /* permutation: slice i moves to BS_PDST[i] */
@@ -22,7 +25,11 @@ static void bs_init(void) {
     for (int i = 0; i < 64; i++) BS_PDST[i] = dip_perm_bit(i);
 }
 
-static inline V vbcast(uint64_t x) { V v = {x, x, x, x}; return v; }
+static inline V vbcast(uint64_t x) {
+    V v;
+    for (int l = 0; l < BS_LANES; l++) v[l] = x;
+    return v;
+}
 
 /* GIFT S-box on 4 slices, x0 = least significant bit */
 static inline void bs_sbox(V *x0, V *x1, V *x2, V *x3) {

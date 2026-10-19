@@ -11,6 +11,9 @@ paper "Differential Cryptanalysis of Full-Round Dipper" (A. Huseynli, Y. Imamver
     make test           # spec test vectors, fast vs bit-level round, bitsliced vs table engine,
                         # and 4000 encryptions against the published Python reference
 
+On macOS, if the linker rejects the default SDK ("tapi error: malformed file"), pick an
+installed one for the build only, e.g. `SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk make NATIVE=1`.
+
 `make test` expects the cipher repository next to this one
 (`../Dipper-lightweight-cipher/dipper_reference.py`) or `DIPPER_REF=<path>`.
 
@@ -20,6 +23,7 @@ paper "Differential Cryptanalysis of Full-Round Dipper" (A. Huseynli, Y. Imamver
 |---|---|
 | `bin/dltool` | measurements: `diff` (differential counts), `dl` (single-bit differential-linear correlations), `lin` (fixed-key linear correlations), `test`, `enc` |
 | `bin/onestep` | exact one-round analysis by exhaustive enumeration of each 32-bit half: `round` (output distribution), `bitgraph` (single-bit graph data), `cluster` (Markov-chain lower bound over a set of differences) |
+| `bin/longdiff` | long differential runs with independent round keys (as `dltool diff -k indep`): chunked, all cores, checkpoint/resume (state file), progress log; `longdiff bench -r R` measures throughput |
 | `bin/lintool` | exact one-round linear correlations (formula and enumeration) and a search for iterative linear approximations |
 
 Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Markov model),
@@ -33,6 +37,7 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 | 02 | exact one-round transitions of 0x800000 and 0x900000; product model |
 | 03 | the lower bound (1/8)(7/32)^(r-1) |
 | 04 | measurements of the iterative differential, 1..13 rounds, independent round keys |
+| 04c | 13 rounds with 2^40 pairs (`longdiff`, resumable) and the table of all 13-round runs against the bound |
 | 05 | fixed-key measurements: Dipper-64/96, Dipper-64/128, fixed independent round keys |
 | 06 | data complexity of the full-round distinguisher |
 | 07 | exact single-bit transition graph (`--check` verifies the claims) |
