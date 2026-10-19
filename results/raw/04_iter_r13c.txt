@@ -1,0 +1,12 @@
+# command: ./bin/longdiff -r 13 -i 800000 -o 800000,900000,2000800000,2000900000 -n 40 -c 28 -s 4131 -t 10 -f results/state/04_iter_r13c.state -l results/state/04_iter_r13c.log
+# host: Darwin 25.6.0 arm64, 10 cpus
+# start: 2026-10-19T12:15:29Z
+cmd=longdiff rounds=13 mode=indep seed=4131 rot=1,4,7,11 chunks=4096 log2chunk=28
+din=0000000000800000 pairs=1099511627776 log2pairs=40.000
+dout=0000000000800000 hits=1669 log2p=-29.2952
+dout=0000000000900000 hits=1171 log2p=-29.8065
+dout=0000002000800000 hits=1135 log2p=-29.8515
+dout=0000002000900000 hits=1096 log2p=-29.9020
+set hits=5071 log2p=-27.6919
+thread_seconds=27408
+# seconds: 2743

@@ -86,3 +86,5 @@ Build used for the measurements: `make NATIVE=1` unless stated otherwise.
 - `python3 steps/07_single_bit_graph.py --check` -> `results/raw/07_check.txt` (2026-10-11T12:43:10Z, 14s)
 - `python3 steps/07_single_bit_graph.py` -> `results/raw/07_graph.txt` (2026-10-11T12:43:24Z, 1s)
 - `python3 steps/10_rotation_table.py` -> `results/raw/10_rotation_table.txt` (2026-10-11T12:43:25Z, 0s)
+- `./bin/longdiff -r 13 -i 800000 -o 800000,900000,2000800000,2000900000 -n 40 -c 28 -s 4131 -t 10 -f results/state/04_iter_r13c.state -l results/state/04_iter_r13c.log` -> `results/raw/04_iter_r13c.txt` (2026-10-19T12:15:29Z, 2743s)
+- `python3 steps/04c_table.py` -> `results/raw/04c_table.txt` (2026-10-19T13:01:16Z, 0s)

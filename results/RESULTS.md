@@ -51,13 +51,17 @@ Pr[0x800000 -> {0x800000, 0x900000}] >= (7/32)^r; r = 27: 2^-59.201 (inferred).
 | 13 | 37 | 179 | -29.516 | [-29.745, -29.319] | -29.312 | -0.204 |
 | 13 (repeat, seed 4130) | 37 | 192 | -29.415 | [-29.635, -29.224] | -29.312 | -0.103 |
 | 13 (both runs) | 38 | 371 | -29.465 | [-29.620, -29.325] | -29.312 | -0.153 |
+| 13 (2^40 run, seed 4131, `04_iter_r13c`) | 40 | 1669 | -29.295 | [-29.365, -29.226] | -29.312 | +0.017 |
+| 13 (all three runs) | 40.322 | 2040 | -29.328 | [-29.391, -29.265] | -29.312 | -0.016 |
 
 The bound is attained within sampling error for r <= 12: paths leaving {0x800000, 0x900000}
-add nothing measurable to 0x800000 -> 0x800000. At r = 13 both runs are below the bound; together
-371 hits against 412.5 expected (z = -2.04, 0.15 bits). With fresh keys in every round the measured
+add nothing measurable to 0x800000 -> 0x800000. At r = 13 the first two runs were below the bound; together
+371 hits against 412.5 expected (z = -2.04, 0.15 bits). The 2^40-pair run (`04_iter_r13c`, step 04c)
+gives 1669 hits against 1650.0 expected (z = +0.47); all three runs together give 2040 against 2062.5
+(z = -0.50), and the bound lies inside the 95% interval (`04c_table`). With fresh keys in every round the measured
 process is exactly the Markov chain, so its expectation cannot be below the bound, and the r = 2 value
 (7.3 million hits) matches the exact two-round value to 0.0002 bits, which checks the engine.
-We read the r = 13 gap as a sampling deviation but state it; a run with 2^40 pairs would settle it.
+The r = 13 gap of the first two runs was a sampling deviation: the 2^40-pair run attains the bound.
 
 The published paper (Table 20) reports 2^-11.98, 2^-14.76, 2^-18.35 at 5, 6, 7 rounds for input
 0x00E00000 and extrapolates about 3.2 bits per round, reaching 2^-64 "around r = 21".
