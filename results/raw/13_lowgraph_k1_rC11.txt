@@ -1,0 +1,10 @@
+# command: ./bin/lowgraph -k 1 -m -16 -R 1,4,11,11 -t 4 -c results/state/lowgraph_k1_rC11
+# host: Linux 6.18.44-fc-v139 x86_64, 4 cpus
+# start: 2026-10-19T21:30:08Z
+rotations=1,4,11,11 K=1 min_log2p=-16.00 half_inputs=121 per half
+nodes=240 edges=348
+best self-loops (log2 p):
+nodes on or leading to cycles: 0
+Howard converged after 1 iterations
+no cycle in the graph: spectral radius 0
+# seconds: 0

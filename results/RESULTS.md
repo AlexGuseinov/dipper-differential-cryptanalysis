@@ -181,3 +181,29 @@ With the crude comparison 1/c^2 pairs (DL) against 1/p pairs (differential), the
 fewer pairs from 8 rounds on; at 7 rounds the DL test still needs fewer (2^15.3 vs 2^16.2).
 At 11 rounds the best correlation is 2.2 bits above the noise level, and the maximum over 64 bits is
 biased upward near the noise level.
+
+## 10. Search for better trails (`11_sat_*`, `11b_lin_trail`, `12_lowgraph_k2`)
+
+- Standard (independence) model, CP-SAT, each r proven optimal (exact within the model; `11_sat_selftest`:
+  the Lipmaa-Moriai and Wallen constraints match brute force on 5-bit words):
+  - differential, r = 1..10: 2, 5, 9, 13.415, 19, 23, 27, 31, 35, 39. From r = 5 every optimal trail is
+    0x800000 -> 0x800000/0x900000 (weight 4 per round in the model, 3 exactly).
+  - linear, r = 1..10: 1, 2, 3, 6, 8, 11, 13, 16, 19, 21 (the published 10-round optimum is 21).
+    Exact one-round correlations along the 10-round trail multiply to 2^-21.1943 (`11b_lin_trail`, exact).
+- The standard model is not an upper bound on exact differential probabilities (the S-box/addition
+  dependence can raise them); its support contains every exactly possible transition.
+- Exact graph of all 27240 differences with <= 2 active nibbles, all one-round transitions >= 2^-16
+  (171032 edges; `12_lowgraph_k2`, exact for this class): minimum mean cycle = self-loop of 0x800000,
+  3.0000 bits/round; spectral radius 2^-2.1926 per round (= the {0x800000, 0x900000} cluster).
+  Differences with more than two active nibbles are not covered.
+
+## 11. Evaluation of new rotation constants (`13_*`; r_A=1, r_B=4, r_D=11)
+
+| r_C | 1-nibble graph cycle | 2-nibble cycle | 2-nibble cluster | SAT diff r=8 | SAT lin r=8 | best iterative linear (<= 2 nibbles) |
+|---|---|---|---|---|---|---|
+| 7 | 3.000 | 3.000 | 2.1926 | 31 | 16 | 2.75 |
+| 3 | none | 5.1383 | 4.5130 | 36.415 | 17 | 3.75 |
+| 9 | none | 5.0000 | 4.6365 | 37.415 | 16 | 3.75 |
+| 11 | none | not computed | not computed | 35 | 16 | 2.75 |
+
+Cycles and clusters in bits per round (exact for the class); SAT weights exact within the standard model.

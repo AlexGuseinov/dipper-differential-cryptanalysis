@@ -1,0 +1,28 @@
+# command: ./bin/lowgraph -k 2 -m -16 -R 1,4,9,11 -t 4 -c results/state/lowgraph_k2_rC9
+# host: Linux 6.18.44-fc-v139 x86_64, 4 cpus
+# start: 2026-10-20T01:30:46Z
+half job 8000 / 12842
+half job 8500 / 12842
+half job 9000 / 12842
+half job 9500 / 12842
+half job 10000 / 12842
+half job 10500 / 12842
+half job 11000 / 12842
+half job 11500 / 12842
+half job 12000 / 12842
+half job 12500 / 12842
+rotations=1,4,9,11 K=2 min_log2p=-16.00 half_inputs=6421 per half
+nodes=27240 edges=172818
+best self-loops (log2 p):
+nodes on or leading to cycles: 7918
+Howard converged after 5 iterations
+minimum mean cycle: 5.0000 bits per round, cycle: 00000000000000c0 0000000000220000  (length 2, product 2^-10.0000)
+spectral radius: log2 rho = -4.6365 bits per round
+largest components of the Perron vector:
+  0000002000000080 1.0000
+  0040002000000000 0.6026
+  0000000000000011 0.5490
+  0000000000220000 0.5490
+  0000004400000000 0.3022
+  0044000000000000 0.2412
+# seconds: 4447

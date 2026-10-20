@@ -1,0 +1,6 @@
+# command: ./bin/lintool search -k 2 -m -5 -L 4 -R 1,4,9,11
+# host: Linux 6.18.44-fc-v139 x86_64, 4 cpus
+# start: 2026-10-19T21:22:27Z
+masks=27240 edges=84498
+cycle len=4 cor=-3.051757812e-05 log2abs_per_round=-3.7500 masks=0000000000000006,0004000200000000,9000080000000000,0000000000009900
+# seconds: 417

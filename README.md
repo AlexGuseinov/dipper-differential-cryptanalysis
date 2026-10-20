@@ -25,6 +25,7 @@ installed one for the build only, e.g. `SDKROOT=/Library/Developer/CommandLineTo
 | `bin/onestep` | exact one-round analysis by exhaustive enumeration of each 32-bit half: `round` (output distribution), `bitgraph` (single-bit graph data), `cluster` (Markov-chain lower bound over a set of differences) |
 | `bin/longdiff` | long differential runs with independent round keys (as `dltool diff -k indep`): chunked, all cores, checkpoint/resume (state file), progress log; `longdiff bench -r R` measures throughput |
 | `bin/lintool` | exact one-round linear correlations (formula and enumeration) and a search for iterative linear approximations |
+| `bin/lowgraph` | exact one-round transition graph of all differences with at most K active nibbles: best iterative trail (minimum mean cycle) and cluster decay (spectral radius); `-c DIR` caches the half enumerations so a run can be resumed |
 
 Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Markov model),
 `rk` (uniform round keys fixed per key), `ks96`, `ks128` (real key schedules, random master keys).
@@ -44,6 +45,9 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 | 08 | single-bit differential-linear correlations |
 | 09 | linear side: exact one-round correlations, iterative approximation, measurements |
 | 10 | single-bit self-loops for all rotation constants |
+| 11 | optimal differential and linear trails in the standard model by CP-SAT (`11_sat.py`, needs `pip install ortools`); 11b: exact correlations along the 10-round linear trail |
+| 12 | exact graph of all differences with at most two active nibbles (`lowgraph -k 2`) |
+| 13 | the rotation fix evaluated for r_C in {3, 9, 11}: exact graphs, CP-SAT trails, iterative linear approximations |
 
 `steps/run.sh NAME CMD...` runs a command, stores its output in `results/raw/NAME.txt`
 and appends the command to `results/COMMANDS.md`. Results are summarised in

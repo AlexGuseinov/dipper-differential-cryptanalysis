@@ -1,0 +1,6 @@
+# command: python3 steps/11_sat.py selftest
+# host: Linux 6.18.44-fc-v139 x86_64, 4 cpus
+# start: 2026-10-19T20:25:53Z
+Lipmaa-Moriai, n=5: 0 mismatches out of 32768
+Wallen, n=5: 0 mismatches out of 32768
+# seconds: 10
