@@ -190,6 +190,9 @@ biased upward near the noise level.
     0x800000 -> 0x800000/0x900000 (weight 4 per round in the model, 3 exactly).
   - linear, r = 1..10: 1, 2, 3, 6, 8, 11, 13, 16, 19, 21 (the published 10-round optimum is 21).
     Exact one-round correlations along the 10-round trail multiply to 2^-21.1943 (`11b_lin_trail`, exact).
+  - the published single-trail weights (Table 16 of the Dipper paper) are 2, 5, 9, 13.42, 19, 23, 27.42 for
+    r = 1..7; ours agree up to r = 6 and give 27 at r = 7. Exact one-round probabilities along our optimal
+    7-round trail multiply to 2^-22.5081 (`11c_diff_trail`, exact), 4.5 bits above its model weight.
 - The standard model is not an upper bound on exact differential probabilities (the S-box/addition
   dependence can raise them); its support contains every exactly possible transition.
 - Exact graph of all 27240 differences with <= 2 active nibbles, all one-round transitions >= 2^-16

@@ -112,3 +112,4 @@ Build used for the measurements: `make NATIVE=1` unless stated otherwise.
 - `steps/11b_lin_trail.sh` -> `results/raw/11b_lin_trail.txt` (2026-10-19T21:30:25Z, 0s)
 - `./bin/lowgraph -k 2 -m -16 -R 1,4,3,11 -t 4 -c results/state/lowgraph_k2_rC3` -> `results/raw/13_lowgraph_k2_rC3.txt` (2026-10-19T23:30:33Z, 1221s)
 - `./bin/lowgraph -k 2 -m -16 -R 1,4,9,11 -t 4 -c results/state/lowgraph_k2_rC9` -> `results/raw/13_lowgraph_k2_rC9.txt` (2026-10-20T01:30:46Z, 4447s)
+- `steps/11c_diff_trail.sh` -> `results/raw/11c_diff_trail.txt` (2026-10-21T16:12:18Z, 53s)

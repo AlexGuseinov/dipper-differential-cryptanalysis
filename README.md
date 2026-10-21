@@ -45,7 +45,7 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 | 08 | single-bit differential-linear correlations |
 | 09 | linear side: exact one-round correlations, iterative approximation, measurements |
 | 10 | single-bit self-loops for all rotation constants |
-| 11 | optimal differential and linear trails in the standard model by CP-SAT (`11_sat.py`, needs `pip install ortools`); 11b: exact correlations along the 10-round linear trail |
+| 11 | optimal differential and linear trails in the standard model by CP-SAT (`11_sat.py`, needs `pip install ortools`); 11b, 11c: exact correlations and probabilities along the optimal 10-round linear and 7-round differential trails |
 | 12 | exact graph of all differences with at most two active nibbles (`lowgraph -k 2`) |
 | 13 | the rotation fix evaluated for r_C in {3, 9, 11}: exact graphs, CP-SAT trails, iterative linear approximations |
 
