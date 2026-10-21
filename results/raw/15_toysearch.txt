@@ -1,0 +1,37 @@
+# command: ./bin/toysearch 20
+# host: Darwin 25.6.0 arm64, 10 cpus
+# start: 2026-10-20T07:19:14Z
+configurations: 32768 (TPC, TPS, rotations A B C D: log2 rho, min mean cycle, best self-loop)
+top 20 by cluster decay:
+  pc=1 ps=2 rot=0,0,7,0 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,0,7,1 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,0,7,2 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,0,7,3 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,0,7,4 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,0,7,5 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,0,7,6 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,0,7,7 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,0 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,1 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,2 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,3 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,4 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,5 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,6 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,1,7,7 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,2,7,0 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,2,7,1 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,2,7,2 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=2 rot=0,2,7,3 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+Dipper's rotations mod 8 (1,4,7,3), all permutation variants:
+  pc=1 ps=2 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=3 ps=0 rho=-2.2404 cycle=3.0000 loop=-3.0000 at 00008000
+  pc=1 ps=0 rho=-2.7776 cycle=2.8390 loop=-inf at 00000000
+  pc=3 ps=2 rho=-3.4150 cycle=4.0000 loop=-4.0000 at 10000000
+  pc=3 ps=3 rho=-4.7922 cycle=4.0000 loop=-inf at 00000000
+  pc=1 ps=1 rho=-inf cycle=inf loop=-inf at 00000000
+  pc=1 ps=3 rho=-inf cycle=inf loop=-inf at 00000000
+  pc=3 ps=1 rho=-inf cycle=inf loop=-inf at 00000000
+configurations matching Dipper's 1-nibble graph (loop -3, rho -2.1926):
+matching: 0
+# seconds: 7

@@ -26,6 +26,10 @@ installed one for the build only, e.g. `SDKROOT=/Library/Developer/CommandLineTo
 | `bin/longdiff` | long differential runs with independent round keys (as `dltool diff -k indep`): chunked, all cores, checkpoint/resume (state file), progress log; `longdiff bench -r R` measures throughput |
 | `bin/lintool` | exact one-round linear correlations (formula and enumeration) and a search for iterative linear approximations |
 | `bin/lowgraph` | exact one-round transition graph of all differences with at most K active nibbles: best iterative trail (minimum mean cycle) and cluster decay (spectral radius); `-c DIR` caches the half enumerations so a run can be resumed |
+| `bin/lowgraph3` | as `lowgraph`, up to K = 3, with the half distributions computed by conditioning on the active nibbles (`src/halffast.h`) instead of enumerating 2^32 values; also prints the r-round lower bound from 0x800000 |
+| `bin/hfcheck` | checks `src/halffast.h` against the 2^32 brute force of `lowgraph` on random half differences |
+| `bin/krec` | key recovery on R-round Dipper with the real key schedules: structures on nibble 5, keyless 59-bit filter, ranking of all 2^32 guesses of 32 last-round key bits |
+| `bin/toysearch`, `bin/toygraph`, `bin/toymeasure` | Dipper-32 (`src/toy32.h`, 32-bit variant): choice of the variant, Markov model, exact counts over the full codebook for many keys |
 
 Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Markov model),
 `rk` (uniform round keys fixed per key), `ks96`, `ks128` (real key schedules, random master keys).
@@ -48,6 +52,9 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 | 11 | optimal differential and linear trails in the standard model by CP-SAT (`11_sat.py`, needs `pip install ortools`); 11b, 11c: exact correlations and probabilities along the optimal 10-round linear and 7-round differential trails |
 | 12 | exact graph of all differences with at most two active nibbles (`lowgraph -k 2`) |
 | 13 | the rotation fix evaluated for r_C in {3, 9, 11}: exact graphs, CP-SAT trails, iterative linear approximations |
+| 14 | key recovery on 14 to 20 rounds (`14_key_recovery.sh R LOG2STRUCT`, `14_table.py`) |
+| 15 | Dipper-32: the full-round data complexity of step 06 checked against the full codebook (`15_toy.sh model|indep|book|table`) |
+| 16 | exact graph of all differences with at most three active nibbles (`lowgraph3 -k 3`) |
 
 `steps/run.sh NAME CMD...` runs a command, stores its output in `results/raw/NAME.txt`
 and appends the command to `results/COMMANDS.md`. Results are summarised in

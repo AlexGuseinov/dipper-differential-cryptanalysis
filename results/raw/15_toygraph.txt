@@ -1,0 +1,31 @@
+# command: ./bin/toygraph -k 3 -m -20 -d 16 -o results/data/toy/model
+# host: Darwin 25.6.0 arm64, 10 cpus
+# start: 2026-10-20T07:19:21Z
+Dipper-32 rot=1,4,7,3 perm pc=1 ps=2; K=3 min_log2p=-20.0 nodes=195420 edges=24254178
+[toy] nodes on or leading to cycles: 168221
+[toy] Howard converged after 8 iterations
+[toy] minimum mean cycle: 3.0000 bits per round, cycle: 0000000000008000  (length 1, product 2^-3.0000)
+[toy] spectral radius: log2 rho = -2.2382 bits per round
+[toy]   0000000000008000 1.0000
+[toy]   0000000000008010 0.7508
+[toy]   000000000000a000 0.6937
+[toy]   000000000000a010 0.6706
+[toy]   0000000000000010 0.6152
+[toy]   000000000040a010 0.3979
+d=1 Pr[0x8000->0x8000] >= 2^-3.0000, top output 00008000 sig 2^-0.0931
+d=2 Pr[0x8000->0x8000] >= 2^-5.0000, top output 00008010 sig 2^-2.1296
+d=3 Pr[0x8000->0x8000] >= 2^-7.2996, top output 00008000 sig 2^-4.2451
+d=4 Pr[0x8000->0x8000] >= 2^-9.5241, top output 00008000 sig 2^-6.5427
+d=5 Pr[0x8000->0x8000] >= 2^-11.7667, top output 00008000 sig 2^-8.7651
+d=6 Pr[0x8000->0x8000] >= 2^-14.0042, top output 00008000 sig 2^-11.0069
+d=7 Pr[0x8000->0x8000] >= 2^-16.2425, top output 00008000 sig 2^-13.2440
+d=8 Pr[0x8000->0x8000] >= 2^-18.4807, top output 00008000 sig 2^-15.4823
+d=9 Pr[0x8000->0x8000] >= 2^-20.7189, top output 00008000 sig 2^-17.7205
+d=10 Pr[0x8000->0x8000] >= 2^-22.9571, top output 00008000 sig 2^-19.9587
+d=11 Pr[0x8000->0x8000] >= 2^-25.1953, top output 00008000 sig 2^-22.1969
+d=12 Pr[0x8000->0x8000] >= 2^-27.4335, top output 00008000 sig 2^-24.4351
+d=13 Pr[0x8000->0x8000] >= 2^-29.6717, top output 00008000 sig 2^-26.6733
+d=14 Pr[0x8000->0x8000] >= 2^-31.9099, top output 00008000 sig 2^-28.9115
+d=15 Pr[0x8000->0x8000] >= 2^-34.1481, top output 00008000 sig 2^-31.1497
+d=16 Pr[0x8000->0x8000] >= 2^-36.3863, top output 00008000 sig 2^-33.3879
+# seconds: 8

@@ -7,11 +7,11 @@ ifeq ($(NATIVE),1)
 CFLAGS += -march=native
 endif
 
-BINS = bin/dltool bin/onestep bin/lintool bin/longdiff bin/lowgraph
+BINS = bin/dltool bin/onestep bin/lintool bin/longdiff bin/lowgraph bin/lowgraph3 bin/hfcheck bin/krec bin/toysearch bin/toygraph bin/toymeasure
 
 all: $(BINS)
 
-bin/%: src/%.c src/dipper.h src/bitslice.h
+bin/%: src/%.c src/dipper.h src/bitslice.h src/halffast.h src/graphalg.h src/bsinv.h src/krank.h src/toy32.h
 	@mkdir -p bin
 	$(CC) $(CFLAGS) -o $@ $< $(LDLIBS)
 

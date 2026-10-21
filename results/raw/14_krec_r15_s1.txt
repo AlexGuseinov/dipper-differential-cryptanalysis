@@ -1,0 +1,79 @@
+# command: ./bin/krec -r 15 -k ks96 -s 1 -n 28 -t 10 -T 8,9
+# host: Darwin 25.6.0 arm64, 10 cpus
+# start: 2026-10-20T07:09:37Z
+chunks 64/4096
+chunks 128/4096
+chunks 192/4096
+chunks 256/4096
+chunks 320/4096
+chunks 384/4096
+chunks 448/4096
+chunks 512/4096
+chunks 576/4096
+chunks 640/4096
+chunks 704/4096
+chunks 768/4096
+chunks 832/4096
+chunks 896/4096
+chunks 960/4096
+chunks 1024/4096
+chunks 1088/4096
+chunks 1152/4096
+chunks 1216/4096
+chunks 1280/4096
+chunks 1344/4096
+chunks 1408/4096
+chunks 1472/4096
+chunks 1536/4096
+chunks 1600/4096
+chunks 1664/4096
+chunks 1728/4096
+chunks 1792/4096
+chunks 1856/4096
+chunks 1920/4096
+chunks 1984/4096
+chunks 2048/4096
+chunks 2112/4096
+chunks 2176/4096
+chunks 2240/4096
+chunks 2304/4096
+chunks 2368/4096
+chunks 2432/4096
+chunks 2496/4096
+chunks 2560/4096
+chunks 2624/4096
+chunks 2688/4096
+chunks 2752/4096
+chunks 2816/4096
+chunks 2880/4096
+chunks 2944/4096
+chunks 3008/4096
+chunks 3072/4096
+chunks 3136/4096
+chunks 3200/4096
+chunks 3264/4096
+chunks 3328/4096
+chunks 3392/4096
+chunks 3456/4096
+chunks 3520/4096
+chunks 3584/4096
+chunks 3648/4096
+chunks 3712/4096
+chunks 3776/4096
+chunks 3840/4096
+chunks 3904/4096
+chunks 3968/4096
+chunks 4032/4096
+chunks 4096/4096
+cmd=krec rounds=15 key=ks96 seed=1 log2structures=28 targets=0x0300
+master key (words, most significant first): 12ff 80e0 78a7 e1f5 f069 9c9f
+rk_R=32cab2a4ec122b2e P^-1(rk_R)=2bf2aa6170a8862e true guess kc=70a8 kd=862e
+data: chosen plaintexts=2^32.000 pairs=2^34.907 seconds=4.9
+survivors=42 right(Delta x_{R-2}=0x800000)=23 nibble5=42 other=0
+survivors by Delta x_{R-2} nibble-5 value v (0x100000*v): 1:0 2:0 3:0 4:0 5:0 6:0 7:0 8:23 9:19 a:0 b:0 c:0 d:0 e:0 f:0
+ranking selfcheck (table vs formula, 4097 keys): ok
+ranking: seconds=1.2 score of the correct guess=42 max score=42
+guesses with a higher score=0 with the same score=19456 (including the correct one)
+candidates kept (score >= correct)=2^14.248, i.e. 17.752 of the 32 bits determined
+score histogram (score:count), top 12 scores: 42:19456 41:14848 40:96256 39:143808 38:164352 37:270528 36:248832 35:341248 34:378880 33:212672 32:139776 31:129024
+# seconds: 6

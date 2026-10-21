@@ -1,0 +1,31 @@
+# command: ./bin/krec -r 14 -k ks128 -s 7 -n 26 -t 10 -T 8,9
+# host: Darwin 25.6.0 arm64, 10 cpus
+# start: 2026-10-20T07:09:32Z
+chunks 64/1024
+chunks 128/1024
+chunks 192/1024
+chunks 256/1024
+chunks 320/1024
+chunks 384/1024
+chunks 448/1024
+chunks 512/1024
+chunks 576/1024
+chunks 640/1024
+chunks 704/1024
+chunks 768/1024
+chunks 832/1024
+chunks 896/1024
+chunks 960/1024
+chunks 1024/1024
+cmd=krec rounds=14 key=ks128 seed=7 log2structures=26 targets=0x0300
+master key (words, most significant first): 754c 9ea0 8b21 5e38 d450 d0ee 5162 12fc
+rk_R=8b215e27cd072fc1 P^-1(rk_R)=096cbefda6003157 true guess kc=a600 kd=3157
+data: chosen plaintexts=2^30.000 pairs=2^32.907 seconds=1.1
+survivors=38 right(Delta x_{R-2}=0x800000)=20 nibble5=38 other=0
+survivors by Delta x_{R-2} nibble-5 value v (0x100000*v): 1:0 2:0 3:0 4:0 5:0 6:0 7:0 8:20 9:18 a:0 b:0 c:0 d:0 e:0 f:0
+ranking selfcheck (table vs formula, 4097 keys): ok
+ranking: seconds=1.1 score of the correct guess=38 max score=38
+guesses with a higher score=0 with the same score=93952 (including the correct one)
+candidates kept (score >= correct)=2^16.520, i.e. 15.480 of the 32 bits determined
+score histogram (score:count), top 12 scores: 38:93952 37:97792 36:230144 35:431104 34:307456 33:317952 32:316672 31:143360 30:158720 29:157696 28:142336 27:336448
+# seconds: 2

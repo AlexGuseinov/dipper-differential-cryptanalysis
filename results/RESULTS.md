@@ -210,3 +210,80 @@ biased upward near the noise level.
 | 11 | none | not computed | not computed | 35 | 16 | 2.75 |
 
 Cycles and clusters in bits per round (exact for the class); SAT weights exact within the standard model.
+
+## 12. Differences with three active nibbles (`16_*`, exact for the class)
+`lowgraph3` computes each half distribution by conditioning on the values of the active nibbles
+(`src/halffast.h`; at most 16^3 cases times 2^16) instead of enumerating 2^32 values. Checks: equal
+to the 2^32 brute force on 100 random half differences with <= 3 active nibbles (`16_hfcheck`), and
+`lowgraph3 -k 2` reproduces step 12 exactly (27240 nodes, 171032 edges, 9256 on cycles; `16_lowgraph3_k2`).
+All 1917240 differences with <= 3 active nibbles, all one-round transitions >= 2^-16 (89173524 edges;
+`16_lowgraph3_k3`):
+- minimum mean cycle: the self-loop of 0x800000, 3.0000 bits/round; spectral radius 2^-2.1926 per round;
+- best self-loop with exactly 3 active nibbles: 2^-10 (0x2400020000000000); best cycle among them
+  9.0538 bits/round; their cluster decays by 6.9069 bits/round;
+- lower bound from 0x800000 to 0x800000 in this graph: r = 13: 2^-29.3117, r = 27: 2^-60.0088,
+  equal to the two-state bound (1/8)(7/32)^(r-1). The third nibble adds nothing measurable.
+Not covered: four or more active nibbles, transitions below 2^-16.
+
+## 13. Dipper-32: the full-round data complexity checked on the codebook (`15_*`)
+Dipper-32 (`src/toy32.h`): 8-bit words, the Dipper S-box, rotations (1,4,7,3) = Dipper's (1,4,7,11)
+mod 8, a GIFT-like 32-bit permutation, modular additions mod 2^8, a scaled key schedule
+(Dipper-32/48). Of the 8 permutation variants with these rotations, the one used (pc=1, ps=2) keeps
+Dipper's self-loop: 0x8000 -> 0x8000 with exact probability 2^-3 (`15_toysearch`). Model as in step 06
+(`toygraph -k 3`, exact one-round transitions, <= 3 nibbles): cycle 3.0000, cluster 2.2382 bits/round.
+
+Pr[0x8000 -> 0x8000] (`15_toy_table`, Table A): model (exact lower bound), independent round keys
+(2^36 pairs, measured) and the exact value over all 2^31 pairs for 64 keys (pooled; quantiles over keys):
+
+| d | model | indep | pooled 64 keys | 10% | median | 90% |
+|---|---|---|---|---|---|---|
+| 4 | -9.524 | -9.524 | -9.515 | -9.588 | -9.499 | -9.461 |
+| 8 | -18.481 | -18.480 | -18.466 | -18.585 | -18.455 | -18.367 |
+| 10 | -22.957 | -22.951 | -22.935 | -23.052 | -22.939 | -22.815 |
+| 11 | -25.195 | -25.173 | -25.153 | -25.445 | -25.167 | -24.934 |
+| 12 | -27.434 | -27.473 | -27.338 | -28.193 | -27.300 | -26.913 |
+
+Distinguisher on R = d + 1 rounds (last round peeled), structures on nibble 3, 16 targets, success
+>= 0.90 at false alarm <= 0.01 (Table B). "Measured" = exact over each key's codebook, structures
+taken independently with probability N/2^32:
+
+| R | model log2 N | tau | model success | measured mean success (64 keys) | min over keys | keys >= 0.9 |
+|---|---|---|---|---|---|---|
+| 11 | 20.125 | 2 | 0.901 | 0.902 | 0.869 | 41/64 |
+| 12 | 22.812 | 3 | 0.911 | 0.912 | 0.886 | 55/64 |
+| 13 | 25.438 | 5 | 0.910 | 0.910 | 0.861 | 49/64 |
+| 14 | 29.125 | 27 | 0.934 | 0.941 | 0.817 | 53/64 |
+
+R = 13 is the analogue of full Dipper (data 2^6.6 below the codebook; Dipper: 2^58.3, 2^5.7 below).
+At every R the key-averaged success equals the model prediction within 0.01; single keys range down
+to 0.82-0.89. The step-06 method therefore predicts the data of the full-round distinguisher of the
+toy cipher correctly. For Dipper itself the 2^58.3 remains inferred.
+
+## 14. Key recovery on 14 to 20 rounds (`14_krec_*`, `14_table`; measured)
+Attack on R rounds (`krec`): structures of 16 chosen plaintexts on nibble 5; the differential
+0x800000 -> {0x800000, 0x900000} over rounds 1..R-2; round R is peeled without a key; the survivors of a
+key-independent 59-bit filter (Delta z = 0 outside the top 5 bits of the C2 word, z = P^-1 of the peeled
+ciphertext) are used to rank all 2^32 guesses of the C2 and D words of P^-1(rk_R): a guess scores one
+for each survivor whose recomputed Delta x_{R-2} is 0x800000 or 0x900000. The ranking by tables is
+checked against the plain formula on 4097 keys in every run. One random master key per seed (seeds 1-4:
+Dipper-64/96, 5-8: Dipper-64/128), real key schedule.
+
+| R | data (CP) | keys | correct guess ranked first | bits of the 32 determined, min / median / max | right pairs, min / median / max |
+|---|---|---|---|---|---|
+| 14 | 2^30 | 8 | 8/8 | 15.48 / 18.00 / 21.42 | 13 / 21 / 31 |
+| 15 | 2^32 | 8 | 8/8 | 13.42 / 17.75 / 19.23 | 13 / 22 / 37 |
+| 16 | 2^34 | 8 | 8/8 | 14.75 / 16.77 / 18.42 | 11 / 19 / 21 |
+| 17 | 2^36 | 8 | 8/8 | 13.57 / 15.84 / 18.91 | 6 / 16 / 23 |
+| 18 | 2^38 | 8 | 8/8 | 12.91 / 15.80 / 20.00 | 7 / 13 / 17 |
+| 19 | 2^40 | 4 | 4/4 | 12.98 / 15.54 / 18.96 | 7 / 12 / 13 |
+| 20 | 2^42 | 2 | 2/2 | 15.42 / 18.22 (2 keys) | 6 / 17 (2 keys) |
+
+- No survivor came from a pair outside nibble 5 in any run, and every survivor had Delta x_{R-2} in
+  {0x800000, 0x900000}. So the filter passed no wrong pairs, and the correct guess always gets the
+  maximum score. The score depends on the guess only through the top 5 bits of the C2 word and, per
+  pair, through the top 5 bits of the D word plus one borrow from the low 11 bits; the guesses tied
+  with the correct one are those that agree on these for every survivor.
+- Time: 2^42 encryptions of 20 rounds took 2.5 to 4.0 hours on 8 cores (Contabo); the ranking takes seconds.
+- Full key (inferred): the remaining kappa - b key bits by exhaustive search, b = bits determined; e.g.
+  Dipper-64/96 at 20 rounds: about 2^(96-15.4) = 2^80.6 trial encryptions, data 2^42 CP. Only 32 bits of
+  one round key are reachable this way (the iterative differential lives in the (C, D) half).

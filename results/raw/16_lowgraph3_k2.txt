@@ -1,0 +1,58 @@
+# command: ./bin/lowgraph3 -k 2 -m -16 -t 8
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-20T07:04:29Z
+rotations=1,4,7,11 K=2 min_log2p=-16.00 half_inputs=6421 per half, 13 blocks
+half blocks 10 / 13
+half blocks 13 / 13
+half entries kept (p >= 2^-16, <= 2 active nibbles after P): 140759
+nodes=27240 edges=171032
+best self-loops (log2 p):
+  0000000000800000 -3.0000
+  0000000000900000 -3.4150
+best self-loops (log2 p) with exactly K active nibbles:
+[all] nodes on or leading to cycles: 9256
+[all] Howard converged after 6 iterations
+[all] minimum mean cycle: 3.0000 bits per round, cycle: 0000000000800000  (length 1, product 2^-3.0000)
+[exactly K] nodes on or leading to cycles: 8735
+[exactly K] Howard converged after 4 iterations
+[exactly K] minimum mean cycle: 6.7075 bits per round, cycle: 4090000000000000 6000300000000000 c800000000000000 6000000080000000  (length 4, product 2^-26.8301)
+[all] spectral radius: log2 rho = -2.1926 bits per round
+[all]   0000000000800000 1.0000
+[all]   0000000000900000 0.7500
+[all]   0000002000800000 0.6786
+[all]   0000002000900000 0.6607
+[all]   0040000000900000 0.3393
+[all]   0000000000800080 0.2857
+[exactly K] spectral radius: log2 rho = -5.5033 bits per round
+[exactly K]   0000000000802000 1.0000
+[exactly K]   0000000000902000 0.7431
+[exactly K]   0000002000002000 0.5057
+(M^r) from 0x800000 to 0x800000, 0x900000 (log2) and their sum:
+[prop] r=1 -3.0000 -3.4150 | set -2.1926
+[prop] r=2 -5.1926 -5.6077 | set -4.3853
+[prop] r=3 -7.3853 -7.8003 | set -6.5779
+[prop] r=4 -9.5779 -9.9930 | set -8.7706
+[prop] r=5 -11.7706 -12.1856 | set -10.9632
+[prop] r=6 -13.9632 -14.3783 | set -13.1559
+[prop] r=7 -16.1559 -16.5709 | set -15.3485
+[prop] r=8 -18.3485 -18.7636 | set -17.5412
+[prop] r=9 -20.5412 -20.9562 | set -19.7338
+[prop] r=10 -22.7338 -23.1488 | set -21.9265
+[prop] r=11 -24.9265 -25.3415 | set -24.1191
+[prop] r=12 -27.1191 -27.5341 | set -26.3117
+[prop] r=13 -29.3117 -29.7268 | set -28.5044
+[prop] r=14 -31.5044 -31.9194 | set -30.6970
+[prop] r=15 -33.6970 -34.1121 | set -32.8897
+[prop] r=16 -35.8897 -36.3047 | set -35.0823
+[prop] r=17 -38.0823 -38.4974 | set -37.2750
+[prop] r=18 -40.2750 -40.6900 | set -39.4676
+[prop] r=19 -42.4676 -42.8826 | set -41.6603
+[prop] r=20 -44.6603 -45.0753 | set -43.8529
+[prop] r=21 -46.8529 -47.2679 | set -46.0455
+[prop] r=22 -49.0455 -49.4606 | set -48.2382
+[prop] r=23 -51.2382 -51.6532 | set -50.4308
+[prop] r=24 -53.4308 -53.8459 | set -52.6235
+[prop] r=25 -55.6235 -56.0385 | set -54.8161
+[prop] r=26 -57.8161 -58.2312 | set -57.0088
+[prop] r=27 -60.0088 -60.4238 | set -59.2014
+# seconds: 22

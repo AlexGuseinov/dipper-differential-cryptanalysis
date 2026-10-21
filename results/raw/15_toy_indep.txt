@@ -1,0 +1,22 @@
+# command: ./bin/toymeasure indep -d 16 -l 36 -s 1 -t 8
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-20T08:39:06Z
+selfcheck (10^6 random rounds against the reference, keyless inverse): ok
+cmd=toymeasure indep seed=1 pairs=2^36
+r=1 hits=8590079713 log2p=-3.0000
+r=2 hits=2147532340 log2p=-5.0000
+r=3 hits=436183638 log2p=-7.2996
+r=4 hits=93316612 log2p=-9.5244
+r=5 hits=19720399 log2p=-11.7668
+r=6 hits=4182261 log2p=-14.0041
+r=7 hits=886267 log2p=-16.2426
+r=8 hits=187988 log2p=-18.4797
+r=9 hits=40002 log2p=-20.7122
+r=10 hits=8474 log2p=-22.9512
+r=11 hits=1817 log2p=-25.1727
+r=12 hits=369 log2p=-27.4725
+r=13 hits=81 log2p=-29.6601
+r=14 hits=25 log2p=-31.3561
+r=15 hits=26 log2p=-31.2996
+r=16 hits=20 log2p=-31.6781
+# seconds: 804
