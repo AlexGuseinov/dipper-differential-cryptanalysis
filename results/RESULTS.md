@@ -27,6 +27,13 @@ modular addition with no key in between, so the S-box value and the carry are co
 The S-box output differences 0x7 and 0xF have product-model probabilities 1/32 and 1/64 but are
 impossible (exact 0). Other one-round outputs of 0x800000 with probability 1/8: 0x2000800000.
 
+Why 1/8 (`02b_carry_check`, exact over all 2^32 inputs, 0 mismatches): with u, v the inputs of the addition
+C + D, the output difference of 0x800000 is 0x800000 exactly when (i) the S-box output difference is 0x3
+and (ii) v_11 != c_11, the carry into bit 11; count 2^29. The S-box outputs with output difference 0x3 are
+1, 2, 5, 6, whose two low bits always differ. Given (ii) the carry into bit 12 equals u_11, so the second carry
+condition u_12 != c_12 holds automatically, which the product model charges a factor 1/2 for.
+The S-box outputs for 0x7 (9, a, d, e) and 0xF (0, 4, b, f) contradict the carry conditions, so hits = 0.
+
 ## 2. Lower bound (`03_bound`, exact arithmetic, valid under independent round keys)
 Pr[0x800000 -> 0x800000, r rounds] >= (1/8)(7/32)^(r-1); decay log2(32/7) = 2.1926 bits/round.
 r = 10: 2^-22.734; r = 13: 2^-29.312; r = 26: 2^-57.816; r = 27: 2^-60.009 (inferred).
@@ -287,3 +294,33 @@ Dipper-64/96, 5-8: Dipper-64/128), real key schedule.
 - Full key (inferred): the remaining kappa - b key bits by exhaustive search, b = bits determined; e.g.
   Dipper-64/96 at 20 rounds: about 2^(96-15.4) = 2^80.6 trial encryptions, data 2^42 CP. Only 32 bits of
   one round key are reachable this way (the iterative differential lives in the (C, D) half).
+
+## 15. Key recovery on the full 28 rounds (`17_*`; inferred)
+The attack of section 14 at R = 28 needs more data than can be run, so it is estimated in two parts.
+
+Signal (`17_model`): model of section 4 with p(d) = average over the 15 nibble-5 input differences of
+Pr[-> {0x800000, 0x900000}, d rounds]; log2 p(26) = -57.865. Test of the model at R = 14, 2^30 CP
+(`17_keys_r14_s*`, 256 fresh master keys, measured): mean survivors 53.49 +- 1.17 s.e. against 53.40, dispersion
+6.59. The 46 runs of section 14 give fewer (1344 against 1822.3), but they use the same 8 master keys for every R,
+so they sample only 8 keys of a spread distribution.
+
+Noise: a wrong pair passes the filter with probability 31 * 2^-64, so wrong pairs appear at this data.
+`krsim` draws K ~ Poisson(signal) real right pairs (`17_pool_s*`, collected on 14 rounds, 490 to 1058 pairs per key)
+and W ~ Poisson(noise) synthetic wrong pairs (z0 uniform, z1 = z0 ^ (delta << 27), delta in 1..31) and
+ranks all 2^32 guesses. 8 keys, 40 trials per key and data volume (`17_sim_c*_s*`, `17_table`).
+Check without noise at the signal of the 20-round runs (`17_check_s*`, K = 26): true guess first in 320/320, bits
+14.54 / 16.41 / 18.43 (10% / median / 90%); measured at 20 rounds: 15.42, 18.22.
+
+| data (CP) | K | W | true guess first | bits determined, 10% / median / 90% |
+|---|---|---|---|---|
+| 2^56 | 2.08 | 0.91 | 0.650 | 1.63 / 5.83 / 10.41 |
+| 2^57 | 4.09 | 1.94 | 0.697 | 3.42 / 10.00 / 12.70 |
+| 2^58 | 8.16 | 3.43 | 0.844 | 9.79 / 12.61 / 14.91 |
+| 2^59 | 16.51 | 7.49 | 0.863 | 12.68 / 14.79 / 16.74 |
+| 2^60 | 32.57 | 14.48 | 0.884 | 14.83 / 16.88 / 18.88 |
+| 2^61 | 65.99 | 28.68 | 0.891 | 16.96 / 18.74 / 20.96 |
+
+At 2^59 CP (2^5 below the codebook) the median run determines 14.8 of the 32 bits; the remaining key bits by
+exhaustive search cost about 2^(96-14.8) = 2^81.2 trial encryptions for Dipper-64/96 and 2^113.2 for Dipper-64/128.
+These numbers are inferred: rounds 15 to 26 rest on the independent-round-key model, the wrong pairs are synthetic,
+and the attack was not run on 28 rounds.

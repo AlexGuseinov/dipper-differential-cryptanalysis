@@ -1,0 +1,45 @@
+# command: ./bin/krsim -f results/data/krsim/pool_s5.txt -c 998d -d dc4d -l 26 -w 0 -n 40 -s 5 -t 8
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-30T20:20:11Z
+cmd=krsim file=results/data/krsim/pool_s5.txt pool=1058 lam1=26.0000 lam0=0.0000 trials=40 seed=5
+trial 0 K=25 W=0 score=25 higher=0 same=122880 bits=15.093
+trial 1 K=18 W=0 score=18 higher=0 same=89344 bits=15.553
+trial 2 K=19 W=0 score=19 higher=0 same=392192 bits=13.419
+trial 3 K=29 W=0 score=29 higher=0 same=33024 bits=16.989
+trial 4 K=34 W=0 score=34 higher=0 same=42752 bits=16.616
+trial 5 K=31 W=0 score=31 higher=0 same=12160 bits=18.430
+trial 6 K=33 W=0 score=33 higher=0 same=28416 bits=17.206
+trial 7 K=31 W=0 score=31 higher=0 same=36096 bits=16.860
+trial 8 K=30 W=0 score=30 higher=0 same=49152 bits=16.415
+trial 9 K=23 W=0 score=23 higher=0 same=21632 bits=17.599
+trial 10 K=25 W=0 score=25 higher=0 same=224512 bits=14.224
+trial 11 K=23 W=0 score=23 higher=0 same=38912 bits=16.752
+trial 12 K=26 W=0 score=26 higher=0 same=62976 bits=16.057
+trial 13 K=25 W=0 score=25 higher=0 same=8480 bits=18.950
+trial 14 K=32 W=0 score=32 higher=0 same=86016 bits=15.608
+trial 15 K=23 W=0 score=23 higher=0 same=16384 bits=18.000
+trial 16 K=30 W=0 score=30 higher=0 same=147712 bits=14.828
+trial 17 K=27 W=0 score=27 higher=0 same=85504 bits=15.616
+trial 18 K=10 W=0 score=10 higher=0 same=197632 bits=14.408
+trial 19 K=33 W=0 score=33 higher=0 same=49152 bits=16.415
+trial 20 K=22 W=0 score=22 higher=0 same=1048576 bits=12.000
+trial 21 K=28 W=0 score=28 higher=0 same=65536 bits=16.000
+trial 22 K=28 W=0 score=28 higher=0 same=10240 bits=18.678
+trial 23 K=22 W=0 score=22 higher=0 same=229888 bits=14.189
+trial 24 K=23 W=0 score=23 higher=0 same=108288 bits=15.275
+trial 25 K=27 W=0 score=27 higher=0 same=142720 bits=14.877
+trial 26 K=23 W=0 score=23 higher=0 same=122368 bits=15.099
+trial 27 K=26 W=0 score=26 higher=0 same=28672 bits=17.193
+trial 28 K=35 W=0 score=35 higher=0 same=90624 bits=15.532
+trial 29 K=28 W=0 score=28 higher=0 same=48640 bits=16.430
+trial 30 K=23 W=0 score=23 higher=0 same=211968 bits=14.307
+trial 31 K=22 W=0 score=22 higher=0 same=131584 bits=14.994
+trial 32 K=41 W=0 score=41 higher=0 same=19840 bits=17.724
+trial 33 K=29 W=0 score=29 higher=0 same=179968 bits=14.543
+trial 34 K=26 W=0 score=26 higher=0 same=55808 bits=16.232
+trial 35 K=35 W=0 score=35 higher=0 same=46976 bits=16.480
+trial 36 K=23 W=0 score=23 higher=0 same=147968 bits=14.825
+trial 37 K=30 W=0 score=30 higher=0 same=36736 bits=16.835
+trial 38 K=31 W=0 score=31 higher=0 same=16128 bits=18.023
+trial 39 K=28 W=0 score=28 higher=0 same=2432 bits=20.752
+# seconds: 167

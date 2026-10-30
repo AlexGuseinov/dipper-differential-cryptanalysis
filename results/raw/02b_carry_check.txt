@@ -1,0 +1,10 @@
+# command: ./bin/carrycheck
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-30T19:03:36Z
+inputs 2^32, output difference 1<<11: 536870912 (2^32/8)
+mismatches with (i) and (ii): 0
+sigma=3 hits=536870912 S(n): 1 6 2 5
+sigma=7 hits=0 S(n): a 9 d e
+sigma=b hits=0 S(n): c 3 7 8
+sigma=f hits=0 S(n): 4 f b 0
+# seconds: 2

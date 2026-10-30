@@ -1,0 +1,45 @@
+# command: ./bin/krsim -f results/data/krsim/pool_s2.txt -c bcb7 -d 2a1c -l 4.118 -w 1.816 -n 40 -s 2 -t 8
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-30T20:37:09Z
+cmd=krsim file=results/data/krsim/pool_s2.txt pool=600 lam1=4.1180 lam0=1.8160 trials=40 seed=2
+trial 0 K=0 W=3 score=1 higher=14684160 same=373284864 bits=3.469
+trial 1 K=4 W=3 score=4 higher=2291712 same=31006720 bits=7.011
+trial 2 K=2 W=5 score=2 higher=82179072 same=632295424 bits=2.588
+trial 3 K=2 W=3 score=2 higher=43085824 same=495460352 bits=2.996
+trial 4 K=4 W=5 score=4 higher=4932608 same=14464000 bits=7.791
+trial 5 K=7 W=2 score=9 higher=0 same=196096 bits=14.419
+trial 6 K=3 W=0 score=3 higher=0 same=33562624 bits=7.000
+trial 7 K=6 W=2 score=6 higher=0 same=1310720 bits=11.678
+trial 8 K=6 W=2 score=6 higher=0 same=2099200 bits=10.999
+trial 9 K=7 W=1 score=8 higher=0 same=132096 bits=14.989
+trial 10 K=6 W=2 score=6 higher=0 same=790528 bits=12.408
+trial 11 K=3 W=0 score=3 higher=0 same=3141632 bits=10.417
+trial 12 K=0 W=3 score=0 higher=921890816 same=3373076480 bits=0.000
+trial 13 K=3 W=1 score=3 higher=0 same=7348224 bits=9.191
+trial 14 K=5 W=2 score=5 higher=0 same=1182720 bits=11.826
+trial 15 K=6 W=1 score=6 higher=0 same=854016 bits=12.296
+trial 16 K=6 W=0 score=6 higher=0 same=2245120 bits=10.902
+trial 17 K=2 W=2 score=2 higher=1048576 same=189796352 bits=4.492
+trial 18 K=5 W=2 score=5 higher=0 same=1212416 bits=11.791
+trial 19 K=2 W=0 score=2 higher=0 same=268468224 bits=4.000
+trial 20 K=4 W=1 score=4 higher=0 same=3407872 bits=10.300
+trial 21 K=8 W=2 score=8 higher=0 same=132096 bits=14.989
+trial 22 K=4 W=3 score=4 higher=1050624 same=32788480 bits=6.988
+trial 23 K=2 W=1 score=2 higher=0 same=109051904 bits=5.300
+trial 24 K=4 W=3 score=4 higher=328704 same=6487040 bits=9.300
+trial 25 K=6 W=3 score=6 higher=0 same=1973248 bits=11.088
+trial 26 K=2 W=1 score=2 higher=0 same=51376128 bits=6.385
+trial 27 K=2 W=3 score=4 higher=0 same=1837056 bits=11.191
+trial 28 K=6 W=2 score=6 higher=0 same=1464320 bits=11.518
+trial 29 K=6 W=4 score=7 higher=20480 same=2589696 bits=10.684
+trial 30 K=4 W=0 score=4 higher=0 same=4198400 bits=9.999
+trial 31 K=2 W=0 score=2 higher=0 same=96468992 bits=5.476
+trial 32 K=4 W=2 score=4 higher=0 same=2097152 bits=11.000
+trial 33 K=6 W=0 score=6 higher=0 same=787456 bits=12.413
+trial 34 K=11 W=1 score=11 higher=0 same=188160 bits=14.478
+trial 35 K=4 W=2 score=4 higher=0 same=2885632 bits=10.540
+trial 36 K=3 W=5 score=3 higher=15312896 same=99102720 bits=5.230
+trial 37 K=3 W=1 score=4 higher=0 same=3017728 bits=10.475
+trial 38 K=2 W=3 score=2 higher=12582912 same=209715200 bits=4.272
+trial 39 K=5 W=3 score=6 higher=0 same=836096 bits=12.327
+# seconds: 57

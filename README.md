@@ -29,6 +29,8 @@ installed one for the build only, e.g. `SDKROOT=/Library/Developer/CommandLineTo
 | `bin/lowgraph3` | as `lowgraph`, up to K = 3, with the half distributions computed by conditioning on the active nibbles (`src/halffast.h`) instead of enumerating 2^32 values; also prints the r-round lower bound from 0x800000 |
 | `bin/hfcheck` | checks `src/halffast.h` against the 2^32 brute force of `lowgraph` on random half differences |
 | `bin/krec` | key recovery on R-round Dipper with the real key schedules: structures on nibble 5, keyless 59-bit filter, ranking of all 2^32 guesses of 32 last-round key bits |
+| `bin/krsim` | ranking of the 2^32 guesses of `krec` on real right pairs mixed with synthetic wrong pairs, for data volumes that cannot be run |
+| `bin/carrycheck` | exhaustive check of the conditions under which 0x800000 maps to itself |
 | `bin/toysearch`, `bin/toygraph`, `bin/toymeasure` | Dipper-32 (`src/toy32.h`, 32-bit variant): choice of the variant, Markov model, exact counts over the full codebook for many keys |
 
 Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Markov model),
@@ -40,6 +42,7 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 |---|---|
 | 01 | C engine vs Python reference |
 | 02 | exact one-round transitions of 0x800000 and 0x900000; product model |
+| 02b | exhaustive check of the two conditions behind the probability 1/8 (`carrycheck`) |
 | 03 | the lower bound (1/8)(7/32)^(r-1) |
 | 04 | measurements of the iterative differential, 1..13 rounds, independent round keys |
 | 04c | 13 rounds with 2^40 pairs (`longdiff`, resumable) and the table of all 13-round runs against the bound |
@@ -55,6 +58,7 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 | 14 | key recovery on 14 to 20 rounds (`14_key_recovery.sh R LOG2STRUCT`, `14_table.py`) |
 | 15 | Dipper-32: the full-round data complexity of step 06 checked against the full codebook (`15_toy.sh model|indep|book|table`) |
 | 16 | exact graph of all differences with at most three active nibbles (`lowgraph3 -k 3`) |
+| 17 | the key recovery of step 14 on the full 28 rounds: survivor model, a test of it on 256 fresh keys, and the ranking simulated at 2^56 to 2^61 chosen plaintexts (`17_model.py`, `17_full_round_kr.sh pool\|keys\|check\|sim`, `17_table.py`) |
 
 `steps/run.sh NAME CMD...` runs a command, stores its output in `results/raw/NAME.txt`
 and appends the command to `results/COMMANDS.md`. Results are summarised in

@@ -7,7 +7,7 @@ ifeq ($(NATIVE),1)
 CFLAGS += -march=native
 endif
 
-BINS = bin/dltool bin/onestep bin/lintool bin/longdiff bin/lowgraph bin/lowgraph3 bin/hfcheck bin/krec bin/toysearch bin/toygraph bin/toymeasure
+BINS = bin/dltool bin/onestep bin/lintool bin/longdiff bin/lowgraph bin/lowgraph3 bin/hfcheck bin/krec bin/krsim bin/carrycheck bin/toysearch bin/toygraph bin/toymeasure
 
 all: $(BINS)
 

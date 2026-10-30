@@ -1,0 +1,31 @@
+# command: ./bin/krec -r 14 -k ks96 -s 198 -n 26 -t 8 -T 8,9
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-30T19:34:43Z
+chunks 64/1024
+chunks 128/1024
+chunks 192/1024
+chunks 256/1024
+chunks 320/1024
+chunks 384/1024
+chunks 448/1024
+chunks 512/1024
+chunks 576/1024
+chunks 640/1024
+chunks 704/1024
+chunks 768/1024
+chunks 832/1024
+chunks 896/1024
+chunks 960/1024
+chunks 1024/1024
+cmd=krec rounds=14 key=ks96 seed=198 log2structures=26 targets=0x0300
+master key (words, most significant first): 8821 fe51 6826 f760 1f9d e613
+rk_R=a6475b52faee82eb P^-1(rk_R)=9b4e6ba2cd66ea73 true guess kc=cd66 kd=ea73
+data: chosen plaintexts=2^30.000 pairs=2^32.907 seconds=2.3
+survivors=38 right(Delta x_{R-2}=0x800000)=24 nibble5=38 other=0
+survivors by Delta x_{R-2} nibble-5 value v (0x100000*v): 1:0 2:0 3:0 4:0 5:0 6:0 7:0 8:24 9:14 a:0 b:0 c:0 d:0 e:0 f:0
+ranking selfcheck (table vs formula, 4097 keys): ok
+ranking: seconds=8.7 score of the correct guess=38 max score=38
+guesses with a higher score=0 with the same score=12416 (including the correct one)
+candidates kept (score >= correct)=2^13.600, i.e. 18.400 of the 32 bits determined
+score histogram (score:count), top 12 scores: 38:12416 37:23424 36:40064 35:75776 34:210432 33:355840 32:358912 31:420352 30:383360 29:216832 28:215296 27:384640
+# seconds: 11

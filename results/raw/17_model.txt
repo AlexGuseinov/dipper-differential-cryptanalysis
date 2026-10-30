@@ -1,0 +1,24 @@
+# command: python3 steps/17_model.py
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-30T18:51:15Z
+key-recovery survivors: model mean against the 14_krec runs
+  R log2 p(R-2) log2 CP keys mean surv    model  ratio
+ 14     -27.168      30    8     39.25    53.40  0.735
+ 15     -29.361      32    8     36.62    46.73  0.784
+ 16     -31.553      34    8     31.62    40.89  0.773
+ 17     -33.746      36    8     25.25    35.78  0.706
+ 18     -35.939      38    8     21.25    31.30  0.679
+ 19     -38.131      40    4     18.00    27.39  0.657
+ 20     -40.324      42    2     20.00    23.97  0.834
+all runs: 1344 survivors, model 1822.3, ratio 0.738
+
+full cipher, R = 28: d = 26 rounds, 16-plaintext structures
+log2 p(26) = -57.865
+log2 CP     lam1     lam0
+     56    2.059    0.908
+     57    4.118    1.816
+     58    8.235    3.633
+     59   16.471    7.266
+     60   32.942   14.531
+     61   65.884   29.062
+# seconds: 68
