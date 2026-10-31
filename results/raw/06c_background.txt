@@ -1,0 +1,20 @@
+# command: python3 steps/06c_background.py
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-31T14:31:36Z
+success >= 0.9, false alarm <= 0.01; rows of step 06
+pairs      1   -60.009 | background log2N  63.375 tau   3 lam0   0.324 lam1   5.480 succ 0.910 | signal only log2N  63.438 tau   3 lam0   0.339 lam1   5.384 succ 0.904
+         at the background N: signal-only mean 5.156, background mean 0.324, success with the signal alone 0.888
+nibble     1   -60.865 | background log2N  60.562 tau   4 lam0   0.692 lam1   6.773 succ 0.906 | signal only log2N  60.750 tau   4 lam0   0.788 lam1   6.925 succ 0.914
+         at the background N: signal-only mean 6.081, background mean 0.692, success with the signal alone 0.856
+pairs     16   -57.265 | background log2N  61.062 tau   5 lam0   1.044 lam1   7.995 succ 0.900 | signal only log2N  61.312 tau   5 lam0   1.242 lam1   8.266 succ 0.915
+         at the background N: signal-only mean 6.951, background mean 1.044, success with the signal alone 0.822
+nibble    16   -58.122 | background log2N  58.312 tau   7 lam0   2.328 lam1  10.889 succ 0.917 | signal only log2N  59.062 tau  10 lam0   3.916 lam1  14.397 succ 0.908
+         at the background N: signal-only mean 8.561, background mean 2.328, success with the signal alone 0.750
+
+Dipper-32, step 15 (measured over each key's codebook, 64 keys):
+  R   log2N  tau    lam0    lam1 mean count  succ bg succ signal measured
+ 11  20.125    2   0.032   3.900      3.919    0.901       0.898    0.902
+ 12  22.812    3   0.206   5.487      5.514    0.911       0.897    0.912
+ 13  25.438    5   1.270   8.175      8.179    0.910       0.818    0.910
+ 14  29.125   27  16.358  35.213     35.699    0.934       0.045    0.941
+# seconds: 61

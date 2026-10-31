@@ -1,0 +1,6 @@
+# command: python3 steps/01b_key_window.py
+# host: Linux 6.8.0-147-generic x86_64, 8 cpus
+# start: 2026-10-31T14:31:36Z
+TV3: published 4B46284387969060, K[63:0] 4B46284387969060 match, K[127:64] B1801ECE19E5DD61 NO MATCH
+TV4: published 6ABB4518063706B0, K[63:0] 6ABB4518063706B0 match, K[127:64] 76548ADCCD790409 NO MATCH
+# seconds: 0

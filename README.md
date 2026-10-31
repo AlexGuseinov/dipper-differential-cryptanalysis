@@ -41,6 +41,7 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 | step | what |
 |---|---|
 | 01 | C engine vs Python reference |
+| 01b | which 64-bit window of the 128-bit key register reproduces the published test vectors |
 | 02 | exact one-round transitions of 0x800000 and 0x900000; product model |
 | 02b | exhaustive check of the two conditions behind the probability 1/8 (`carrycheck`) |
 | 03 | the lower bound (1/8)(7/32)^(r-1) |
@@ -48,6 +49,7 @@ Key modes for `dltool`: `indep` (fresh uniform round keys for every pair: the Ma
 | 04c | 13 rounds with 2^40 pairs (`longdiff`, resumable) and the table of all 13-round runs against the bound |
 | 05 | fixed-key measurements: Dipper-64/96, Dipper-64/128, fixed independent round keys |
 | 06 | data complexity of the full-round distinguisher |
+| 06c | data complexity with and without the background term, and the test of that assumption on Dipper-32 |
 | 07 | exact single-bit transition graph (`--check` verifies the claims) |
 | 08 | single-bit differential-linear correlations |
 | 09 | linear side: exact one-round correlations, iterative approximation, measurements |

@@ -11,6 +11,11 @@ Spec test vectors TV1–TV4 reproduce; the table-based round equals the bit-leve
 on 10^6 random inputs; the bitsliced engine equals the table engine on 256 blocks x 28 rounds;
 4000 full encryptions agree with `dipper_reference.py` from the cipher repository.
 
+Round key window (`01b_key_window`): Equation (7) of the published paper takes K[127:64] for Dipper-64/128,
+specification v1.1 and `dipper_reference.py` take K[63:0]. The published test vectors TV3 and TV4 are reproduced
+by K[63:0] only. This repository analyses the cipher defined by the test vectors. Results for independent round
+keys do not depend on the window; measurements with `ks128` do.
+
 ## 1. Exact one-round transitions (`02_one_round_exact`, exact)
 Enumeration of all 2^32 inputs of the (C,D) half (the (A,B) half has zero difference):
 
@@ -98,8 +103,10 @@ Data complexity, success >= 0.90 at false-alarm <= 0.01 (Poisson counts; N chose
 
 All four are below the codebook (2^64). Best: 2^58.3 chosen plaintexts (structures, 16 targets,
 threshold 7 right pairs, expected 2.3 for a random permutation and 10.9 for Dipper).
-These numbers are inferred (Markov model beyond 13 rounds) and are upper bounds on the data within
-that model, because the cluster probabilities are lower bounds.
+These numbers are inferred (Markov model beyond 13 rounds). They use lam1 = pairs * (p_S + |S| 2^-64), so they
+also assume that all trails outside the cluster behave like the random background; that does not follow from
+independent round keys. See section 16 for the values without this assumption, which are the upper bounds on the
+data within the model. Best without it: 2^59.06 chosen plaintexts.
 
 ## 5. Single-bit graph (`07_single_bit_graph --check`, exact)
 For (1,4,7,11) the only single-bit self-loop is bit 23 -> bit 23, probability 1/8.
@@ -320,7 +327,34 @@ Check without noise at the signal of the 20-round runs (`17_check_s*`, K = 26): 
 | 2^60 | 32.57 | 14.48 | 0.884 | 14.83 / 16.88 / 18.88 |
 | 2^61 | 65.99 | 28.68 | 0.891 | 16.96 / 18.74 / 20.96 |
 
-At 2^59 CP (2^5 below the codebook) the median run determines 14.8 of the 32 bits; the remaining key bits by
-exhaustive search cost about 2^(96-14.8) = 2^81.2 trial encryptions for Dipper-64/96 and 2^113.2 for Dipper-64/128.
+"Bits determined" here and in section 14 is the reduction of the 2^32 candidates, 32 - log2(guesses kept), and does
+not mean that particular key bits are known. At 2^59 CP (2^5 below the codebook) the median reduction is 14.8 bits;
+testing the remaining candidates costs about 2^(96-14.8) = 2^81.2 trial encryptions for Dipper-64/96 and 2^113.2 for Dipper-64/128.
 These numbers are inferred: rounds 15 to 26 rest on the independent-round-key model, the wrong pairs are synthetic,
 and the attack was not run on 28 rounds.
+
+## 16. Data complexity with and without the background (`06c_background`; inferred, Dipper-32 measured)
+Step 06 adds the random background |S| 2^-64 to p_S. Since p_S is a lower bound on the probability of reaching S, the
+sum is justified only if the trails outside the cluster behave like the background. The mean count is at least
+pairs * p_S, so the N computed from p_S alone is an upper bound within the independent-round-key model.
+
+| setting | target set size | log2 N with background | log2 N, signal only |
+|---|---|---|---|
+| pairs (x, x^0x800000) | 1 | 63.375 | 63.438 |
+| pairs (x, x^0x800000) | 16 | 61.062 | 61.312 |
+| 16-plaintext structures on nibble 5 | 1 | 60.562 | 60.750 |
+| 16-plaintext structures on nibble 5 | 16 | 58.312 | 59.062 |
+
+Best setting, signal only: threshold 10, expected 3.9 for a random permutation and at least 14.4 for Dipper,
+success 0.908. At 2^58.312 the signal alone gives mean 8.561 and success 0.750 instead of 0.917.
+
+Test of the assumption on Dipper-32 (full codebook, 64 keys, section 13):
+
+| R | lam0 | lam1 with background | measured mean count | success with background | signal only | measured |
+|---|---|---|---|---|---|---|
+| 11 | 0.032 | 3.900 | 3.919 | 0.901 | 0.898 | 0.902 |
+| 12 | 0.206 | 5.487 | 5.514 | 0.911 | 0.897 | 0.912 |
+| 13 | 1.270 | 8.175 | 8.179 | 0.910 | 0.818 | 0.910 |
+| 14 | 16.358 | 35.213 | 35.699 | 0.934 | 0.045 | 0.941 |
+
+The assumption holds on Dipper-32. This supports 2^58.3 for Dipper but does not prove it.

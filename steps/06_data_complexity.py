@@ -16,8 +16,9 @@ Poisson with mean lam1 = pairs * (p_S + |S| 2^-64) for Dipper and lam0 = pairs *
 for a random permutation.  The test accepts "Dipper" when count >= tau.  For each N
 we pick tau as the smallest value with false-alarm <= ALPHA and report the success rate.
 All 27-round probabilities are lower bounds under the independent-round-key model,
-i.e. "inferred" numbers; the reported data complexities are therefore upper bounds
-within that model.
+i.e. "inferred" numbers. Adding the background to them assumes that all other trails
+behave like it; step 06c gives the values without that assumption, which are the upper
+bounds within the model.
 """
 import math, os, subprocess, sys
 

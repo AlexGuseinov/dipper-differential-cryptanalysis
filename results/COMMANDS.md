@@ -492,3 +492,5 @@ Build used for the measurements: `make NATIVE=1` unless stated otherwise.
 - `./bin/krsim -f results/data/krsim/pool_s7.txt -c a600 -d 3157 -l 65.884 -w 29.062 -n 40 -s 7 -t 8` -> `results/raw/17_sim_c61_s7.txt` (2026-10-30T22:42:34Z, 513s)
 - `./bin/krsim -f results/data/krsim/pool_s8.txt -c 0e1c -d 098f -l 65.884 -w 29.062 -n 40 -s 8 -t 8` -> `results/raw/17_sim_c61_s8.txt` (2026-10-30T22:51:07Z, 535s)
 - `python3 steps/17_table.py` -> `results/raw/17_table.txt` (2026-10-30T23:18:43Z, 0s)
+- `python3 steps/01b_key_window.py` -> `results/raw/01b_key_window.txt` (2026-10-31T14:31:36Z, 0s)
+- `python3 steps/06c_background.py` -> `results/raw/06c_background.txt` (2026-10-31T14:31:36Z, 61s)
